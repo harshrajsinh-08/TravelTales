@@ -51,10 +51,12 @@
             <div class="flex justify-between items-center">
                 <div class="text-2xl font-bold text-orange-500">TravelTales</div>
                 <div class="hidden md:flex space-x-6">
-                    <a href="#featured-stories" class="nav-link">Explore</a>
-                    <a href="#blog-section" class="nav-link">Blog</a>
+                    <a href="explore.html" class="nav-link">Explore</a>
+                    <a href="blogs.html" class="nav-link">Blog</a>
                     <a href="#plan-trip" class="nav-link">My Trips</a>
-                    <a href="#profile-section" class="nav-link">Profile</a>
+                    <a href="profile.html" class="nav-link">Profile</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
                 </div>
                 <button class="md:hidden"><i class="bi bi-list text-2xl"></i></button>
             </div>
@@ -67,9 +69,14 @@
         <div class="relative text-center text-white px-4">
             <h1 class="text-4xl md:text-6xl font-bold mb-6">Discover Incredible India</h1>
             <div class="max-w-3xl mx-auto">
-                <div class="flex flex-col md:flex-row gap-2">
-                    <input type="text" placeholder="Where do you want to go in India?" class="flex-1 px-6 py-3 rounded-full text-gray-800">
-                    <button class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full transition">
+                <div class="flex flex-col md:flex-row gap-2 relative">
+                    <div class="flex-1 relative">
+                        <input type="text" id="searchInput" placeholder="Where do you want to go in India?" class="w-full px-6 py-3 rounded-full text-gray-800">
+                        <div id="searchResults" class="absolute left-0 right-0 mt-1 bg-white rounded-lg shadow-lg overflow-hidden hidden z-10">
+                            <!-- Search results will be populated here -->
+                        </div>
+                    </div>
+                    <button onclick="handleSearch()" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full transition">
                         Search
                     </button>
                 </div>
@@ -185,9 +192,9 @@
                 <div>
                     <h4 class="font-bold mb-4">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white">About Us</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Contact</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
+                        <li><a href="privacy.html" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
                     </ul>
                 </div>
                 <div>
@@ -212,50 +219,101 @@
     <!-- JavaScript for Map -->
     <script>
         // Initialize the map
-    const map = L.map('map').setView([20.5937, 78.9629], 5); // India's coordinates
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '© OpenStreetMap',
-    }).addTo(map);
+        const map = L.map('map').setView([20.5937, 78.9629], 5); // India's coordinates
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap',
+        }).addTo(map);
 
-    // Predefined locations with details
-    const locations = [
-        {
-            name: "Jaipur",
-            lat: 26.9124,
-            lng: 75.7873,
-            description: "The Pink City of India, Jaipur is famous for its royal palaces, vibrant bazaars, and historic forts.",
-            image: "https://images.unsplash.com/photo-1602643163983-ed0babc39797?q=80&w=2865&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Jaipur image
-        },
-        {
-            name: "Delhi",
-            lat: 28.7041,
-            lng: 77.1025,
-            description: "India's capital, Delhi, is a blend of history and modernity with famous landmarks like India Gate and Red Fort.",
-            image: "https://plus.unsplash.com/premium_photo-1697730320983-f99aab252a44?q=80&w=2667&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Delhi image
-        },
-        {
-            name: "Goa",
-            lat: 15.2993,
-            lng: 74.1240,
-            description: "Known for its beaches, nightlife, and Portuguese heritage, Goa is a paradise for travelers.",
-            image: "https://images.unsplash.com/photo-1607577070449-531c2296916c?q=80&w=2825&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Goa image
-        },
-    ];
+        // Predefined locations with details
+        const locations = [
+            {
+                name: "Jaipur",
+                lat: 26.9124,
+                lng: 75.7873,
+                description: "The Pink City of India, Jaipur is famous for its royal palaces, vibrant bazaars, and historic forts.",
+                image: "https://images.unsplash.com/photo-1602643163983-ed0babc39797?q=80&w=2865&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            },
+            {
+                name: "Delhi",
+                lat: 28.7041,
+                lng: 77.1025,
+                description: "India's capital, Delhi, is a blend of history and modernity with famous landmarks like India Gate and Red Fort.",
+                image: "https://plus.unsplash.com/premium_photo-1697730320983-f99aab252a44?q=80&w=2667&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            },
+            {
+                name: "Goa",
+                lat: 15.2993,
+                lng: 74.1240,
+                description: "Known for its beaches, nightlife, and Portuguese heritage, Goa is a paradise for travelers.",
+                image: "https://images.unsplash.com/photo-1607577070449-531c2296916c?q=80&w=2825&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            },
+            {
+                name: "Mumbai",
+                lat: 19.0760,
+                lng: 72.8777,
+                description: "The city of dreams, Mumbai offers a vibrant mix of culture, entertainment, and colonial architecture.",
+                image: "https://images.unsplash.com/photo-1529253355930-ddbe423a2ac7?q=80&w=2865&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            },
+            {
+                name: "Agra",
+                lat: 27.1767,
+                lng: 78.0081,
+                description: "Home to the iconic Taj Mahal, Agra showcases the finest Mughal architecture and rich history.",
+                image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            },
+            {
+                name: "Varanasi",
+                lat: 25.3176,
+                lng: 82.9739,
+                description: "One of the world's oldest living cities, Varanasi is a spiritual hub with its sacred Ganges ghats.",
+                image: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?q=80&w=2776&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            },
+            {
+                name: "Udaipur",
+                lat: 24.5854,
+                lng: 73.7125,
+                description: "The City of Lakes, Udaipur is known for its romantic setting, luxury palaces, and beautiful lakes.",
+                image: "https://images.unsplash.com/photo-1598890777032-bde835ba27c2?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            },
+            {
+                name: "Kochi",
+                lat: 9.9312,
+                lng: 76.2673,
+                description: "A coastal gem in Kerala, Kochi features Chinese fishing nets, colonial architecture, and vibrant art scene.",
+                image: "https://images.unsplash.com/photo-1590123717647-ee0cfe88403d?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            },
+            {
+                name: "Rishikesh",
+                lat: 30.0869,
+                lng: 78.2676,
+                description: "The yoga capital of the world, Rishikesh offers spiritual experiences, adventure sports, and serene Ganges views.",
+                image: "https://images.unsplash.com/photo-1591099112017-7c7be4b63465?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            },
+            {
+                name: "Amritsar",
+                lat: 31.6340,
+                lng: 74.8723,
+                description: "Home to the Golden Temple, Amritsar is the spiritual center of the Sikh faith and famous for its cuisine.",
+                image: "https://images.unsplash.com/photo-1588096344356-9b047c9471dc?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            }
+        ];
 
-    // Handle map clicks
-    map.on('click', function (e) {
-        const { lat, lng } = e.latlng;
+        // Initialize markers object to store all markers
+        const markers = {};
 
-        // Find the nearest predefined location (within 1-degree threshold)
-        const location = locations.find(
-            loc => Math.abs(loc.lat - lat) < 1 && Math.abs(loc.lng - lng) < 1
-        );
-
-        if (location) {
-            // Add a marker for the location
-            L.marker([location.lat, location.lng]).addTo(map).bindPopup(location.name).openPopup();
-
+        // Function to display location details
+        function displayLocationDetails(location) {
+            // Remove existing markers
+            Object.values(markers).forEach(marker => map.removeLayer(marker));
+            
+            // Add marker for selected location
+            const marker = L.marker([location.lat, location.lng]).addTo(map);
+            markers[location.name] = marker;
+            
+            // Pan to location
+            map.setView([location.lat, location.lng], 8);
+            
             // Display the location card
             const card = document.getElementById('location-card');
             card.innerHTML = `
@@ -266,10 +324,92 @@
                 </div>
             `;
             card.classList.remove('hidden');
-        } else {
-            alert('No predefined location found near this point. Please try another spot!');
         }
-    });
+
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
+
+        searchInput.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            if (searchTerm.length < 1) {
+                searchResults.classList.add('hidden');
+                return;
+            }
+
+            const filteredLocations = locations.filter(location => 
+                location.name.toLowerCase().includes(searchTerm)
+            );
+
+            if (filteredLocations.length > 0) {
+                searchResults.innerHTML = filteredLocations
+                    .map(location => `
+                        <div class="p-3 hover:bg-gray-100 cursor-pointer text-gray-800" 
+                             onclick="selectLocation('${location.name}')">
+                            ${location.name}
+                        </div>
+                    `).join('');
+                searchResults.classList.remove('hidden');
+            } else {
+                searchResults.classList.add('hidden');
+            }
+        });
+
+        function selectLocation(locationName) {
+            const location = locations.find(loc => loc.name === locationName);
+            if (location) {
+                searchInput.value = location.name;
+                searchResults.classList.add('hidden');
+                displayLocationDetails(location);
+                // Scroll to map section when selecting from dropdown
+                document.getElementById('plan-trip').scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        function handleSearch() {
+            const searchTerm = searchInput.value;
+            const location = locations.find(loc => 
+                loc.name.toLowerCase() === searchTerm.toLowerCase()
+            );
+            if (location) {
+                displayLocationDetails(location);
+                // Scroll to map section
+                document.getElementById('plan-trip').scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            } else {
+                alert('Please select a location from the list');
+            }
+        }
+
+        // Handle map clicks
+        map.on('click', function (e) {
+            const { lat, lng } = e.latlng;
+
+            // Find the nearest predefined location (within 1-degree threshold)
+            const location = locations.find(
+                loc => Math.abs(loc.lat - lat) < 1 && Math.abs(loc.lng - lng) < 1
+            );
+
+            if (location) {
+                displayLocationDetails(location);
+                searchInput.value = location.name;
+            } else {
+                alert('No predefined location found near this point. Please try another spot!');
+            }
+        });
+
+        // Close search results when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+                searchResults.classList.add('hidden');
+            }
+        });
     </script>
 </body>
 </html>

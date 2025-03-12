@@ -1,11 +1,12 @@
+/* Base styles */
 body {
     font-family: 'Poppins', sans-serif;
     scroll-behavior: smooth;
 }
 
-.nav-link:hover {
-    color: #f97316;
-    transition: color 0.3s ease;
+/* Navigation styles */
+.nav-link {
+    @apply text-gray-600 hover:text-orange-500 transition-colors font-medium;
 }
 
 /* Mobile Menu Styles */
@@ -19,25 +20,76 @@ body {
 }
 
 .mobile-nav-link {
-    display: block;
-    padding: 0.75rem 1rem;
-    color: #4b5563;
-    transition: all 0.3s ease;
+    @apply block px-4 py-3 text-gray-800 hover:bg-gray-100 hover:text-orange-500 border-b border-gray-100;
 }
 
-.mobile-nav-link:hover {
-    background-color: #f3f4f6;
+/* Form styles */
+.form-input {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-all;
+}
+
+.form-input:invalid:not(:placeholder-shown) {
+    @apply border-red-500 focus:ring-red-500 focus:border-red-500;
+}
+
+.form-input:valid:not(:placeholder-shown) {
+    @apply border-green-500;
+}
+
+.submit-button {
+    @apply w-full bg-orange-500 text-white py-3 px-6 rounded-lg hover:bg-orange-600 transition-all focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2;
+}
+
+.loading-spinner {
+    @apply animate-spin h-5 w-5;
+}
+
+/* Message styles */
+.form-message {
+    @apply p-4 rounded-lg mb-4 flex items-center gap-2 text-sm font-medium;
+}
+
+.form-message.success {
+    @apply bg-green-50 text-green-700 border border-green-200;
+}
+
+.form-message.error {
+    @apply bg-red-50 text-red-700 border border-red-200;
+}
+
+/* Card styles */
+.card {
+    @apply bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow;
+}
+
+/* Button styles */
+.btn {
+    @apply px-4 py-2 rounded-lg transition-colors font-medium;
+}
+
+.btn-primary {
+    @apply bg-orange-500 text-white hover:bg-orange-600;
+}
+
+.btn-secondary {
+    @apply bg-gray-100 text-gray-800 hover:bg-gray-200;
+}
+
+/* Animation utilities */
+.hover-translate {
+    @apply transition-transform hover:translate-x-1;
+}
+
+.hover-scale {
+    @apply transition-transform hover:scale-105;
+}
+
+.nav-link:hover {
     color: #f97316;
+    transition: color 0.3s ease;
 }
 
 /* Form Styles */
-.form-input {
-    width: 100%;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    border: 1px solid #d1d5db;
-}
-
 .form-input:focus {
     outline: none;
     border-color: #f97316;
@@ -60,21 +112,70 @@ body {
     border-radius: 0.5rem;
 }
 
-/* Button Styles */
-.submit-button {
-    width: 100%;
-    background-color: #f97316;
-    color: white;
-    padding: 0.75rem;
-    border-radius: 0.5rem;
-    transition: background-color 0.3s ease;
-}
-
-.submit-button:hover {
-    background-color: #ea580c;
-}
-
 .submit-button:disabled {
     opacity: 0.7;
     cursor: not-allowed;
+}
+
+/* Custom styles for TravelTales */
+
+/* Form styles */
+.form-input {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-all;
+}
+
+.form-input:invalid:not(:placeholder-shown) {
+    @apply border-red-500 focus:ring-red-500 focus:border-red-500;
+}
+
+.form-input:valid:not(:placeholder-shown) {
+    @apply border-green-500;
+}
+
+.submit-button {
+    @apply w-full bg-orange-500 text-white py-3 px-6 rounded-lg hover:bg-orange-600 transition-all focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2;
+}
+
+.loading-spinner {
+    @apply animate-spin h-5 w-5;
+}
+
+/* Message styles */
+.form-message {
+    @apply p-4 rounded-lg mb-4 flex items-center gap-2 text-sm font-medium;
+}
+
+.form-message.success {
+    @apply bg-green-50 text-green-700 border border-green-200;
+}
+
+.form-message.error {
+    @apply bg-red-50 text-red-700 border border-red-200;
+}
+
+/* Card styles */
+.card {
+    @apply bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow;
+}
+
+/* Button styles */
+.btn {
+    @apply px-4 py-2 rounded-lg transition-colors font-medium;
+}
+
+.btn-primary {
+    @apply bg-orange-500 text-white hover:bg-orange-600;
+}
+
+.btn-secondary {
+    @apply bg-gray-100 text-gray-800 hover:bg-gray-200;
+}
+
+/* Animation utilities */
+.hover-translate {
+    @apply transition-transform hover:translate-x-1;
+}
+
+.hover-scale {
+    @apply transition-transform hover:scale-105;
 } 

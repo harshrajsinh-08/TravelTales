@@ -1,9 +1,3 @@
-const map = L.map("map").setView([20.5937, 78.9629], 5);
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  maxZoom: 19,
-  attribution: "© OpenStreetMap",
-}).addTo(map);
-
 const locations = [
   {
     name: "Jaipur",
@@ -161,35 +155,35 @@ const locations = [
 
 
 ];
+const map = L.map("map").setView([20.5937, 78.9629], 5);
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  maxZoom: 19,
+  attribution: "© OpenStreetMap",
+}).addTo(map);
 
-// Initialize markers object to store all markers
 const markers = {};
-
-// Function to display location details
 function displayLocationDetails(location) {
-  // Remove existing markers
   Object.values(markers).forEach((marker) => map.removeLayer(marker));
+  const marker = L.marker([location.lat, location.lng])
+    .addTo(map)
+    .bindTooltip(location.name)
+    .openTooltip();
 
-  // Add marker for selected location
-  const marker = L.marker([location.lat, location.lng]).addTo(map);
   markers[location.name] = marker;
-
-  // Pan to location
   map.setView([location.lat, location.lng], 8);
-
-  // Display the location card
   const card = document.getElementById("location-card");
   card.innerHTML = `
-                <img src="${location.image}" alt="${location.name}" class="h-48 w-full object-cover rounded-t-xl">
-                <div class="p-4">
-                    <h3 class="text-2xl font-bold mb-2">${location.name}</h3>
-                    <p class="text-gray-600">${location.description}</p>
-                </div>
-            `;
+    <img src="${location.image}" alt="${location.name}" class="h-48 w-full object-cover rounded-t-xl">
+    <div class="p-4">
+      <h3 class="text-2xl font-bold mb-2">${location.name}</h3>
+      <p class="text-gray-600">${location.description}</p>
+    </div>
+  `;
   card.classList.remove("hidden");
 }
 
-// Search functionality
+
+//search  
 const searchInput = document.getElementById("searchInput");
 const searchResults = document.getElementById("searchResults");
 
@@ -209,11 +203,11 @@ searchInput.addEventListener("input", function (e) {
     searchResults.innerHTML = filteredLocations
       .map(
         (location) => `
-                        <div class="p-3 hover:bg-gray-100 cursor-pointer text-gray-800" 
-                             onclick="selectLocation('${location.name}')">
-                            ${location.name}
-                        </div>
-                    `
+          <div class="p-3 hover:bg-gray-100 cursor-pointer text-gray-800"
+               onclick="selectLocation('${location.name}')">
+            ${location.name}
+          </div>
+        `
       )
       .join("");
     searchResults.classList.remove("hidden");
@@ -228,7 +222,8 @@ function selectLocation(locationName) {
     searchInput.value = location.name;
     searchResults.classList.add("hidden");
     displayLocationDetails(location);
-    // Scroll to map section when selecting from dropdown
+
+    // Scroll to map
     document.getElementById("plan-trip").scrollIntoView({
       behavior: "smooth",
       block: "start",
@@ -237,13 +232,12 @@ function selectLocation(locationName) {
 }
 
 function handleSearch() {
-  const searchTerm = searchInput.value;
+  const searchTerm = searchInput.value.trim();
   const location = locations.find(
     (loc) => loc.name.toLowerCase() === searchTerm.toLowerCase()
   );
   if (location) {
     displayLocationDetails(location);
-    // Scroll to map section
     document.getElementById("plan-trip").scrollIntoView({
       behavior: "smooth",
       block: "start",
@@ -257,7 +251,6 @@ function handleSearch() {
 map.on("click", function (e) {
   const { lat, lng } = e.latlng;
 
-  // Find the nearest predefined location (within 1-degree threshold)
   const location = locations.find(
     (loc) => Math.abs(loc.lat - lat) < 1 && Math.abs(loc.lng - lng) < 1
   );
@@ -266,15 +259,28 @@ map.on("click", function (e) {
     displayLocationDetails(location);
     searchInput.value = location.name;
   } else {
-    alert(
-      "No predefined location found near this point. Please try another spot!"
-    );
+    alert("No predefined location found near this point. Please try another spot!");
   }
 });
 
-// Close search results when clicking outside
+// Close dropdown on outside click
 document.addEventListener("click", function (e) {
   if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
     searchResults.classList.add("hidden");
+  }
+});
+const menuBtn = document.getElementById("menu-btn");
+const mobileMenu = document.getElementById("mobile-menu");
+
+menuBtn.addEventListener("click", function () {
+  if (mobileMenu.classList.contains("hidden")) {
+    mobileMenu.classList.remove("hidden", "opacity-0", "-translate-y-5");
+    mobileMenu.classList.add("opacity-100", "translate-y-0");
+  } else {
+    mobileMenu.classList.add("opacity-0", "-translate-y-5");
+    mobileMenu.classList.remove("opacity-100", "translate-y-0");
+    setTimeout(() => {
+      mobileMenu.classList.add("hidden");
+    }, 200);
   }
 });

@@ -1,0 +1,38 @@
+body {
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+}
+.parallax-header {
+  height: 70vh;
+  background-image: url("https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd");
+  background-size: cover;
+  background-position: center;
+}
+#map {
+  height: 400px;
+  width: 100%;
+  border-radius: 1rem;
+}
+.nav-link:hover {
+  color: #f97316;
+  transition: color 0.3s ease;
+}
+.story-card:hover,
+.blog-card:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+}
+.badge {
+  background-color: #f97316;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  display: inline-block;
+}
+.story-card:hover,
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}

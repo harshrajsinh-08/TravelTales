@@ -68,15 +68,6 @@
             <a href="about.html" class="nav-link">About</a>
             <a href="contact.html" class="nav-link">Contact</a>
           </div>
-          <div class="flex items-center space-x-4">
-            <span id="userEmail" class="hidden text-sm text-gray-600"></span>
-            <button
-              id="logoutBtn"
-              class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm transition"
-            >
-              Logout
-            </button>
-          </div>
           <button id="mobile-menu-toggle" class="md:hidden"><i class="bi bi-list text-2xl"></i></button>
           <div
             id="mobile-menu"
@@ -88,12 +79,6 @@
             <a href="profile.html" class="nav-link text-gray-700">Profile</a>
             <a href="about.html" class="nav-link text-gray-700">About</a>
             <a href="contact.html" class="nav-link text-gray-700">Contact</a>
-            <button
-              id="mobileLogoutBtn"
-              class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm transition w-full"
-            >
-              Logout
-            </button>
           </div>
         </div>
       </div>
@@ -348,33 +333,6 @@
 
     <!-- JavaScript for Map -->
     <script>
-      // Check authentication on page load
-      document.addEventListener('DOMContentLoaded', function() {
-        const isLoggedIn = localStorage.getItem('isLoggedIn');
-        const userEmail = localStorage.getItem('userEmail');
-        
-        if (!isLoggedIn) {
-          window.location.href = 'login.html';
-          return;
-        }
-        
-        // Display user email in navbar
-        if (userEmail) {
-          document.getElementById('userEmail').textContent = userEmail;
-          document.getElementById('userEmail').classList.remove('hidden');
-        }
-      });
-
-      // Logout functionality
-      function logout() {
-        localStorage.removeItem('isLoggedIn');
-        localStorage.removeItem('userEmail');
-        window.location.href = 'login.html';
-      }
-
-      document.getElementById('logoutBtn').addEventListener('click', logout);
-      document.getElementById('mobileLogoutBtn').addEventListener('click', logout);
-
       // Initialize the map
       const map = L.map("map").setView([20.5937, 78.9629], 5); // India's coordinates
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {

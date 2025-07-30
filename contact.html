@@ -40,8 +40,17 @@
             <a href="about.html" class="nav-link">About</a>
             <a href="contact.html" class="nav-link">Contact</a>
           </div>
+          <div class="flex items-center space-x-4">
+            <span id="userEmail" class="hidden text-sm text-gray-600"></span>
+            <button
+              id="logoutBtn"
+              class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm transition"
+            >
+              Logout
+            </button>
+          </div>
           <button
-            id="menuButton"
+            id="mobile-menu-toggle"
             class="md:hidden"
             aria-label="Toggle menu"
             aria-expanded="false"
@@ -54,51 +63,16 @@
           >
             <a href="explore.html" class="nav-link text-gray-700">Explore</a>
             <a href="blogs.html" class="nav-link text-gray-700">Blog</a>
-            <a href="#plan-trip" class="nav-link text-gray-700">My Trips</a>
+            <a href="index.html#plan-trip" class="nav-link text-gray-700">My Trips</a>
             <a href="profile.html" class="nav-link text-gray-700">Profile</a>
             <a href="about.html" class="nav-link text-gray-700">About</a>
             <a href="contact.html" class="nav-link text-gray-700">Contact</a>
-          </div>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div
-          id="mobileMenu"
-          class="md:hidden hidden absolute left-0 right-0 top-full bg-white border-t border-gray-200 mt-0"
-        >
-          <div class="container mx-auto px-4">
-            <div class="py-2">
-              <a
-                href="explore.html"
-                class="block px-4 py-3 text-gray-800 hover:bg-gray-100 hover:text-orange-500 border-b border-gray-100"
-                >Explore</a
-              >
-              <a
-                href="blogs.html"
-                class="block px-4 py-3 text-gray-800 hover:bg-gray-100 hover:text-orange-500 border-b border-gray-100"
-                >Blog</a
-              >
-              <a
-                href="index.html#plan-trip"
-                class="block px-4 py-3 text-gray-800 hover:bg-gray-100 hover:text-orange-500 border-b border-gray-100"
-                >My Trips</a
-              >
-              <a
-                href="profile.html"
-                class="block px-4 py-3 text-gray-800 hover:bg-gray-100 hover:text-orange-500 border-b border-gray-100"
-                >Profile</a
-              >
-              <a
-                href="about.html"
-                class="block px-4 py-3 text-gray-800 hover:bg-gray-100 hover:text-orange-500 border-b border-gray-100"
-                >About</a
-              >
-              <a
-                href="contact.html"
-                class="block px-4 py-3 text-gray-800 hover:bg-gray-100 hover:text-orange-500"
-                >Contact</a
-              >
-            </div>
+            <button
+              id="mobileLogoutBtn"
+              class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm transition w-full"
+            >
+              Logout
+            </button>
           </div>
         </div>
       </div>

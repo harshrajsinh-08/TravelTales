@@ -41,17 +41,9 @@
       }
       .btn-primary {
         background: linear-gradient(135deg, #f97316, #ea580c);
-        transition: all 0.3s ease;
-      }
-      .btn-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 25px rgba(249, 115, 22, 0.3);
       }
       .social-btn {
-        transition: all 0.3s ease;
-      }
-      .social-btn:hover {
-        transform: translateY(-2px);
+        /* Simple button styling */
       }
     </style>
   </head>
@@ -85,10 +77,10 @@
                   id="email"
                   name="email"
                   required
-                  class="input-field w-full px-4 py-3 pl-12 border border-gray-300 rounded-lg focus:outline-none transition-all"
+                  class="input-field w-full px-4 py-3 pl-12 border border-gray-300 rounded-lg focus:outline-none"
                   placeholder="Enter your email"
                 />
-                <i class="bi bi-envelope absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                <i class="bi bi-envelope absolute left-4 top-1/2 text-gray-400" style="transform: translateY(-50%);"></i>
               </div>
             </div>
 
@@ -102,10 +94,10 @@
                   id="password"
                   name="password"
                   required
-                  class="input-field w-full px-4 py-3 pl-12 pr-12 border border-gray-300 rounded-lg focus:outline-none transition-all"
+                  class="input-field w-full px-4 py-3 pl-12 pr-12 border border-gray-300 rounded-lg focus:outline-none"
                   placeholder="Enter your password"
                 />
-                <i class="bi bi-lock absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                <i class="bi bi-lock absolute left-4 top-1/2 text-gray-400" style="transform: translateY(-50%);"></i>
                 <button
                   type="button"
                   id="togglePassword"

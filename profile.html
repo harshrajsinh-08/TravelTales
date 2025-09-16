@@ -39,7 +39,7 @@
     </style>
   </head>
   <body class="bg-gray-50">
-    <!-- Navbar -->
+  <!-- Navbar hai -->
     <nav class="fixed w-full bg-white/90 backdrop-blur-md z-50 shadow-sm">
       <div class="container mx-auto px-4 py-4">
         <div class="flex justify-between items-center">
@@ -85,7 +85,7 @@
       </div>
     </nav>
 
-    <!-- Profile Header -->
+  <!-- Profile Header hai -->
     <header class="pt-24 pb-12 bg-orange-500">
       <div class="container mx-auto px-4">
         <div class="flex flex-col md:flex-row items-center gap-8">
@@ -114,7 +114,7 @@
       </div>
     </header>
 
-    <!-- Profile Content -->
+  <!-- Profile ka content hai -->
     <section class="container mx-auto px-4 py-16">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Stats Card -->
@@ -261,7 +261,7 @@
       </div>
     </section>
 
-    <!-- Footer -->
+  <!-- Footer hai -->
     <footer class="bg-gray-800 text-white py-12">
       <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -318,81 +318,7 @@
       </div>
     </footer>
 
-    <!-- Mobile Navigation JavaScript -->
-    <script>
-      // Check authentication on page load
-      document.addEventListener('DOMContentLoaded', function() {
-        const isLoggedIn = localStorage.getItem('isLoggedIn');
-        const userEmail = localStorage.getItem('userEmail');
-        
-        if (!isLoggedIn) {
-          window.location.href = 'login.html';
-          return;
-        }
-        
-        // Display user email in navbar
-        if (userEmail) {
-          document.getElementById('userEmail').textContent = userEmail;
-          document.getElementById('userEmail').classList.remove('hidden');
-        }
-      });
-
-      // Logout functionality
-      function logout() {
-        localStorage.removeItem('isLoggedIn');
-        localStorage.removeItem('userEmail');
-        window.location.href = 'login.html';
-      }
-
-      document.getElementById('logoutBtn').addEventListener('click', logout);
-      document.getElementById('mobileLogoutBtn').addEventListener('click', logout);
-
-      // Mobile menu toggle functionality
-      const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
-      const mobileMenu = document.getElementById("mobile-menu");
-
-      mobileMenuToggle.addEventListener("click", function() {
-        if (mobileMenu.classList.contains("hidden")) {
-          // Show menu
-          mobileMenu.classList.remove("hidden");
-          setTimeout(() => {
-            mobileMenu.classList.remove("opacity-0", "-translate-y-5");
-            mobileMenu.classList.add("opacity-100", "translate-y-0");
-          }, 10);
-        } else {
-          // Hide menu
-          mobileMenu.classList.remove("opacity-100", "translate-y-0");
-          mobileMenu.classList.add("opacity-0", "-translate-y-5");
-          setTimeout(() => {
-            mobileMenu.classList.add("hidden");
-          }, 200);
-        }
-      });
-
-      // Close mobile menu when clicking outside
-      document.addEventListener("click", function(e) {
-        if (!mobileMenuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
-          if (!mobileMenu.classList.contains("hidden")) {
-            mobileMenu.classList.remove("opacity-100", "translate-y-0");
-            mobileMenu.classList.add("opacity-0", "-translate-y-5");
-            setTimeout(() => {
-              mobileMenu.classList.add("hidden");
-            }, 200);
-          }
-        }
-      });
-
-      // Close mobile menu when clicking on a link
-      const mobileMenuLinks = mobileMenu.querySelectorAll("a");
-      mobileMenuLinks.forEach(link => {
-        link.addEventListener("click", function() {
-          mobileMenu.classList.remove("opacity-100", "translate-y-0");
-          mobileMenu.classList.add("opacity-0", "-translate-y-5");
-          setTimeout(() => {
-            mobileMenu.classList.add("hidden");
-          }, 200);
-        });
-      });
-    </script>
+  <!-- Mobile Navigation JavaScript hai -->
+  <script src="public/js/navigation.js"></script>
   </body>
 </html>

@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TravelTales - Login</title>
-    <!-- Google OAuth Script -->
+  <!-- Google OAuth Script hai -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <!-- Facebook SDK -->
+  <!-- Facebook SDK hai -->
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
     <link
       rel="stylesheet"
@@ -48,24 +48,24 @@
     </style>
   </head>
   <body class="bg-gray-50">
-    <!-- Login Section -->
+  <!-- Login Section hai -->
     <section class="parallax-header relative flex items-center justify-center">
       <div class="absolute inset-0 bg-black/40"></div>
       <div class="relative z-10 w-full max-w-md px-6">
-        <!-- Logo -->
+  <!-- Logo hai -->
         <div class="text-center mb-8">
           <h1 class="text-4xl font-bold text-white mb-2">TravelTales</h1>
           <p class="text-white/80">Discover Incredible India</p>
         </div>
 
-        <!-- Login Card -->
+  <!-- Login Card hai -->
         <div class="login-card rounded-2xl p-8 shadow-2xl">
           <div class="text-center mb-6">
             <h2 class="text-2xl font-bold text-gray-800 mb-2">Welcome Back</h2>
             <p class="text-gray-600">Sign in to continue your journey</p>
           </div>
 
-          <!-- Login Form -->
+          <!-- Login Form hai -->
           <form id="loginForm" class="space-y-6">
             <div>
               <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
@@ -129,14 +129,14 @@
             </button>
           </form>
 
-          <!-- Divider -->
+          <!-- Divider hai -->
           <div class="my-6 flex items-center">
             <div class="flex-1 border-t border-gray-300"></div>
             <span class="px-4 text-sm text-gray-500">or continue with</span>
             <div class="flex-1 border-t border-gray-300"></div>
           </div>
 
-          <!-- Social Login -->
+          <!-- Social Login hai -->
           <div class="grid grid-cols-2 gap-4">
             <div id="googleSignInDiv" class="social-btn flex items-center justify-center px-4 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer">
               <i class="bi bi-google text-red-500 mr-2"></i>
@@ -148,7 +148,7 @@
             </button>
           </div>
 
-          <!-- Sign Up Link -->
+          <!-- Sign Up Link hai -->
           <div class="text-center mt-6">
             <p class="text-sm text-gray-600">
               Don't have an account?
@@ -158,21 +158,12 @@
             </p>
           </div>
         </div>
-
-        <!-- Demo Credentials -->
-        <div class="mt-6 text-center">
-          <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-white">
-            <p class="text-sm font-medium mb-2">Demo Credentials:</p>
-            <p class="text-xs">Email: demo@traveltales.com</p>
-            <p class="text-xs">Password: demo123</p>
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- JavaScript -->
+  <!-- JavaScript hai -->
     <script>
-      // Password toggle functionality
+  // Password toggle karne ka function hai
       const togglePassword = document.getElementById('togglePassword');
       const passwordInput = document.getElementById('password');
 
@@ -190,7 +181,7 @@
         }
       });
 
-      // Login form submission
+  // Login form submit karne ka function hai
       const loginForm = document.getElementById('loginForm');
       
       loginForm.addEventListener('submit', function(e) {
@@ -199,21 +190,22 @@
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
         
-        // Simple validation - you can replace this with actual authentication
+  // Simple validation hai
         if (email === 'demo@traveltales.com' && password === 'demo123') {
-          // Store login status
+          // Login status store karo
           localStorage.setItem('isLoggedIn', 'true');
           localStorage.setItem('userEmail', email);
           
-          // Show success message
+          // Success message dikhana hai
           showMessage('Login successful! Redirecting...', 'success');
           
-          // Redirect to main page after 1.5 seconds
+          // 1.5 second ke baad main page par redirect karo
           setTimeout(() => {
             window.location.href = 'index.html';
           }, 1500);
-        } else if (email && password) {
-          // For any other email/password combination, still allow login (demo purposes)
+        } 
+        /*else if (email && password) {
+          // Koi bhi email/password ho, login allow karo (demo ke liye)
           localStorage.setItem('isLoggedIn', 'true');
           localStorage.setItem('userEmail', email);
           
@@ -222,20 +214,21 @@
           setTimeout(() => {
             window.location.href = 'index.html';
           }, 1500);
-        } else {
-          showMessage('Please fill in all fields', 'error');
+        } */
+        else {
+          showMessage('Please enter correct credentials', 'error');
         }
       });
 
-      // Show message function
+  // Message dikhane ka function hai
       function showMessage(message, type) {
-        // Remove existing message
+  // Purana message hatao
         const existingMessage = document.querySelector('.message');
         if (existingMessage) {
           existingMessage.remove();
         }
 
-        // Create new message
+  // Naya message banao
         const messageDiv = document.createElement('div');
         messageDiv.className = `message fixed top-4 right-4 px-6 py-3 rounded-lg text-white z-50 transition-all duration-300 ${
           type === 'success' ? 'bg-green-500' : 'bg-red-500'
@@ -244,13 +237,13 @@
         
         document.body.appendChild(messageDiv);
         
-        // Remove message after 3 seconds
+  // 3 second ke baad message hatao
         setTimeout(() => {
           messageDiv.remove();
         }, 3000);
       }
 
-      // Social login handlers (demo)
+  // Social login handle karne wale function (demo)
       document.querySelectorAll('.social-btn').forEach(btn => {
         btn.addEventListener('click', function() {
           const provider = this.textContent.trim();
@@ -258,7 +251,7 @@
         });
       });
 
-      // Check if user is already logged in
+  // Check karo ki user already logged in hai ya nahi
       if (localStorage.getItem('isLoggedIn') === 'true') {
         window.location.href = 'index.html';
       }

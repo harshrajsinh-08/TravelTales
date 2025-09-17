@@ -1,71 +1,72 @@
-# TravelTales
 
-A travel blog website with a functional contact form powered by Express and Nodemailer.
+# TravelTales (Yeh ek travel blog website hai)
 
-## Features
+A travel blog website hai jisme ek functional contact form hai, jo Express aur Nodemailer se chalta hai.
 
-- Responsive design using Tailwind CSS
-- Dynamic blog posts and travel stories
-- Contact form with email notifications
-- About page with team information
-- Privacy policy page
+## Features (Kya-kya milta hai)
 
-## Setup Instructions
+- Responsive design Tailwind CSS se bana hai
+- Dynamic blog posts aur travel stories milengi
+- Contact form hai jo email bhejta hai
+- About page par team ki jankari hai
+- Privacy policy page bhi hai
 
-### Prerequisites
+## Setup Instructions (Kaise setup karein)
 
-- Node.js (v14 or higher)
+### Prerequisites (Zaroori cheezein)
+
+- Node.js (v14 ya usse upar)
 - npm (Node Package Manager)
-- Gmail account for sending emails
+- Gmail account chahiye emails bhejne ke liye
 
-### Local Development
+### Local Development (Apne computer par kaam kaise karein)
 
-1. Clone the repository:
+1. Repository ko clone karo:
 ```bash
 git clone <repository-url>
 cd traveltales
 ```
 
-2. Install dependencies:
+2. Dependencies install karo:
 ```bash
 npm install
 ```
 
-3. Create a `.env` file in the root directory with the following variables:
+3. Root directory mein `.env` file banao aur neeche wali cheezein daalo:
 ```
 EMAIL_USER=your-gmail@gmail.com
 EMAIL_PASS=your-app-specific-password
 PORT=3000
 ```
 
-Note: For EMAIL_PASS, you'll need to generate an App Password from your Google Account settings:
-1. Go to Google Account Security settings
-2. Enable 2-Step Verification if not already enabled
-3. Generate an App Password for "Mail"
+Note: EMAIL_PASS ke liye, Google Account settings se App Password banana padega:
+1. Google Account Security settings par jao
+2. 2-Step Verification enable karo (agar nahi kiya hai toh)
+3. "Mail" ke liye App Password banao
 
-4. Start the development server:
+4. Development server chalu karo:
 ```bash
 npm run dev
 ```
 
-### Deployment to Render
+### Deployment to Render (Render par kaise daalein)
 
-1. Create a new Web Service on Render
-2. Connect your GitHub repository
-3. Configure the following:
-   - Build Command: `npm install`
-   - Start Command: `npm start`
-4. Add the environment variables (EMAIL_USER, EMAIL_PASS, PORT) in Render's dashboard
-5. Deploy the service
+1. Render par naya Web Service banao
+2. Apna GitHub repository connect karo
+3. Yeh settings daalo:
+  - Build Command: `npm install`
+  - Start Command: `npm start`
+4. Environment variables (EMAIL_USER, EMAIL_PASS, PORT) Render ke dashboard mein daalo
+5. Service deploy karo
 
-6. Update the contact form endpoint in `contact.html` with your Render URL:
+6. `contact.html` mein contact form ka endpoint apne Render URL se update karo:
 ```javascript
 fetch('https://your-render-app.onrender.com/api/contact', {
   // ... rest of the code
 })
 ```
 
-## File Structure
+## File Structure (Files ka arrangement)
 
 ```
 traveltales/
@@ -82,13 +83,13 @@ traveltales/
 └── README.md
 ```
 
-## Contributing
+## Contributing (Yogdaan kaise karein)
 
-1. Fork the repository
-2. Create a new branch
-3. Make your changes
-4. Submit a pull request
+1. Repository fork karo
+2. Nayi branch banao
+3. Apne changes karo
+4. Pull request bhejo
 
-## License
+## License (License ki jankari)
 
-MIT License - feel free to use this project for your own purposes. 
+MIT License hai - aap apne kaam ke liye is project ko use kar sakte ho. 

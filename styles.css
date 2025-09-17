@@ -1,27 +1,33 @@
+/* Body ke styles hai */
 body {
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
 }
+/* Parallax header ke styles hai */
 .parallax-header {
   height: 70vh;
   background-image: url("./public/images/photo_hero.png");
   background-size: cover;
   background-position: center;
 }
+/* Map ke styles hai */
 #map {
   height: 400px;
   width: 100%;
   border-radius: 1rem;
 }
+/* Navbar link hover ke styles hai */
 .nav-link:hover {
   color: #f97316;
   transition: color 0.3s ease;
 }
+/* Story card aur blog card hover ke styles hai */
 .story-card:hover,
 .blog-card:hover {
   transform: translateY(-5px);
   transition: transform 0.3s ease;
 }
+/* Badge ke styles hai */
 .badge {
   background-color: #f97316;
   color: white;
@@ -31,6 +37,7 @@ body {
   border-radius: 12px;
   display: inline-block;
 }
+/* Story card aur blog card hover ke liye shadow effect */
 .story-card:hover,
 .blog-card:hover {
   transform: translateY(-5px);

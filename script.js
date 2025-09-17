@@ -1,3 +1,4 @@
+// Yeh locations ka array hai
 const locations = [
   {
     name: "Jaipur",
@@ -155,13 +156,16 @@ const locations = [
 
 
 ];
+// Map ko initialize kar rahe hain
 const map = L.map("map").setView([20.5937, 78.9629], 5);
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
   attribution: "© OpenStreetMap",
 }).addTo(map);
 
+// Markers ko store karne ke liye object hai
 const markers = {};
+// Location ki details dikhane ka function hai
 function displayLocationDetails(location) {
   Object.values(markers).forEach((marker) => map.removeLayer(marker));
   const marker = L.marker([location.lat, location.lng])
@@ -183,10 +187,11 @@ function displayLocationDetails(location) {
 }
 
 
-//search  
+// Search ka logic hai
 const searchInput = document.getElementById("searchInput");
 const searchResults = document.getElementById("searchResults");
 
+// Jab user search box mein type karta hai
 searchInput.addEventListener("input", function (e) {
   const searchTerm = e.target.value.toLowerCase();
 
@@ -216,6 +221,7 @@ searchInput.addEventListener("input", function (e) {
   }
 });
 
+// Location select karne par yeh function chalega
 function selectLocation(locationName) {
   const location = locations.find((loc) => loc.name === locationName);
   if (location) {
@@ -231,6 +237,7 @@ function selectLocation(locationName) {
   }
 }
 
+// Search button dabane par yeh function chalega
 function handleSearch() {
   const searchTerm = searchInput.value.trim();
   const location = locations.find(
@@ -247,7 +254,7 @@ function handleSearch() {
   }
 }
 
-// Handle map clicks
+// Map par click karne par kya hoga
 map.on("click", function (e) {
   const { lat, lng } = e.latlng;
 
@@ -263,24 +270,9 @@ map.on("click", function (e) {
   }
 });
 
-// Close dropdown on outside click
+// Bahar click karne par dropdown band ho jayega
 document.addEventListener("click", function (e) {
   if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
     searchResults.classList.add("hidden");
-  }
-});
-const menuBtn = document.getElementById("menu-btn");
-const mobileMenu = document.getElementById("mobile-menu");
-
-menuBtn.addEventListener("click", function () {
-  if (mobileMenu.classList.contains("hidden")) {
-    mobileMenu.classList.remove("hidden", "opacity-0", "-translate-y-5");
-    mobileMenu.classList.add("opacity-100", "translate-y-0");
-  } else {
-    mobileMenu.classList.add("opacity-0", "-translate-y-5");
-    mobileMenu.classList.remove("opacity-100", "translate-y-0");
-    setTimeout(() => {
-      mobileMenu.classList.add("hidden");
-    }, 200);
   }
 });

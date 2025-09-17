@@ -25,17 +25,12 @@
       }
       .nav-link:hover {
         color: #f97316;
-        transition: color 0.3s ease;
-      }
-      .blog-card:hover {
-        transform: translateY(-5px);
-        transition: transform 0.3s ease;
       }
     </style>
   </head>
   <body class="bg-gray-50">
     <!-- Navbar -->
-    <nav class="fixed w-full bg-white/90 backdrop-blur-md z-50 shadow-sm">
+    <nav class="fixed w-full bg-white z-50 shadow-sm">
       <div class="container mx-auto px-4 py-4">
         <div class="flex justify-between items-center">
           <a href="index.html" class="text-2xl font-bold text-orange-500"
@@ -95,137 +90,14 @@
     <!-- Featured Blog Posts -->
     <section class="container mx-auto px-4 py-16">
       <h2 class="text-3xl font-bold mb-8">Featured Stories</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="blog-card bg-white rounded-xl shadow-md overflow-hidden">
-          <img
-            src="https://plus.unsplash.com/premium_photo-1731606078756-d9102149265c?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            class="h-64 w-full object-cover"
-          />
-          <div class="p-6">
-            <div class="flex items-center mb-4">
-              <img
-                src="https://randomuser.me/api/portraits/men/32.jpg"
-                class="h-10 w-10 rounded-full mr-4"
-              />
-              <div>
-                <h4 class="font-semibold">Rahul Sharma</h4>
-                <p class="text-gray-500 text-sm">Posted 2 days ago</p>
-              </div>
-            </div>
-            <h3 class="font-bold text-xl mb-2">
-              A Food Lover's Guide to Delhi's Street Food
-            </h3>
-            <p class="text-gray-600 mb-4">
-              Exploring the vibrant street food scene of Delhi, from
-              mouth-watering chaats to delicious paranthas...
-            </p>
-            <div class="flex items-center justify-between">
-              <a href="#" class="text-orange-500 hover:text-orange-600"
-                >Read More →</a
-              >
-              <div class="flex items-center space-x-4">
-                <span class="text-gray-500"
-                  ><i class="bi bi-heart"></i> 245</span
-                >
-                <span class="text-gray-500"><i class="bi bi-chat"></i> 18</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="blog-card bg-white rounded-xl shadow-md overflow-hidden">
-          <img
-            src="https://plus.unsplash.com/premium_photo-1661963369594-9b25cd53be4d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHVkYWlwdXJ8ZW58MHx8MHx8fDA%3D"
-            class="h-64 w-full object-cover"
-          />
-          <div class="p-6">
-            <div class="flex items-center mb-4">
-              <img
-                src="https://randomuser.me/api/portraits/women/44.jpg"
-                class="h-10 w-10 rounded-full mr-4"
-              />
-              <div>
-                <h4 class="font-semibold">Priya Patel</h4>
-                <p class="text-gray-500 text-sm">Posted 5 days ago</p>
-              </div>
-            </div>
-            <h3 class="font-bold text-xl mb-2">
-              The Magic of Udaipur: A Royal Experience
-            </h3>
-            <p class="text-gray-600 mb-4">
-              Discovering the enchanting City of Lakes, its palaces, and the
-              rich Rajasthani culture...
-            </p>
-            <div class="flex items-center justify-between">
-              <a href="#" class="text-orange-500 hover:text-orange-600"
-                >Read More →</a
-              >
-              <div class="flex items-center space-x-4">
-                <span class="text-gray-500"
-                  ><i class="bi bi-heart"></i> 189</span
-                >
-                <span class="text-gray-500"><i class="bi bi-chat"></i> 24</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div id="featured-blogs" class="grid grid-cols-1 md:grid-cols-2 gap-8"></div>
     </section>
 
     <!-- Recent Posts Grid -->
     <section class="bg-gray-100 py-16">
       <div class="container mx-auto px-4">
         <h2 class="text-3xl font-bold mb-8">Recent Stories</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="blog-card bg-white rounded-xl shadow-md overflow-hidden">
-            <img
-              src="https://media.istockphoto.com/id/182755489/photo/young-woman-meditating-by-ganges-river-in-rishikesh-india.webp?a=1&b=1&s=612x612&w=0&k=20&c=cIup9CXDPA6U32LKMODUeQg3ikg_-4QAAwUjJ8wRLEk="
-              class="h-48 w-full object-cover"
-            />
-            <div class="p-6">
-              <h3 class="font-bold text-xl mb-2">
-                Spiritual Journey in Rishikesh
-              </h3>
-              <p class="text-gray-600 mb-4">
-                Finding peace and adventure in the yoga capital of the world...
-              </p>
-              <a href="#" class="text-orange-500 hover:text-orange-600"
-                >Read More →</a
-              >
-            </div>
-          </div>
-          <div class="blog-card bg-white rounded-xl shadow-md overflow-hidden">
-            <img
-              src="https://media.istockphoto.com/id/164922731/photo/golden-temple-amritsar.webp?a=1&b=1&s=612x612&w=0&k=20&c=PIQv3rgkoMmyanP0Rs6BY9SnyMR-J9qUz-W6qCC8nfU="
-              class="h-48 w-full object-cover"
-            />
-            <div class="p-6">
-              <h3 class="font-bold text-xl mb-2">
-                Golden Temple: A Divine Experience
-              </h3>
-              <p class="text-gray-600 mb-4">
-                Experiencing the spiritual aura of Amritsar's Golden Temple...
-              </p>
-              <a href="#" class="text-orange-500 hover:text-orange-600"
-                >Read More →</a
-              >
-            </div>
-          </div>
-          <div class="blog-card bg-white rounded-xl shadow-md overflow-hidden">
-            <img
-              src="https://images.unsplash.com/photo-1593682011146-7f6b1b055cde?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8a2VyZWxhfGVufDB8fDB8fHww"
-              class="h-48 w-full object-cover"
-            />
-            <div class="p-6">
-              <h3 class="font-bold text-xl mb-2">Kerala's Hidden Treasures</h3>
-              <p class="text-gray-600 mb-4">
-                Exploring the lesser-known gems of God's Own Country...
-              </p>
-              <a href="#" class="text-orange-500 hover:text-orange-600"
-                >Read More →</a
-              >
-            </div>
-          </div>
-        </div>
+        <div id="recent-blogs" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
       </div>
     </section>
 
@@ -287,80 +159,48 @@
     </footer>
 
     <!-- Mobile Navigation JavaScript -->
+    <script src="blog-data.js"></script>
     <script>
-      // Check authentication on page load
-      document.addEventListener('DOMContentLoaded', function() {
-        const isLoggedIn = localStorage.getItem('isLoggedIn');
-        const userEmail = localStorage.getItem('userEmail');
-        
-        if (!isLoggedIn) {
-          window.location.href = 'login.html';
-          return;
-        }
-        
-        // Display user email in navbar
-        if (userEmail) {
-          document.getElementById('userEmail').textContent = userEmail;
-          document.getElementById('userEmail').classList.remove('hidden');
-        }
-      });
-
-      // Logout functionality
-      function logout() {
-        localStorage.removeItem('isLoggedIn');
-        localStorage.removeItem('userEmail');
-        window.location.href = 'login.html';
+      // Render blogs dynamically
+      function renderBlogs() {
+        const featured = blogs.slice(0, 2);
+        const recent = blogs.slice(2);
+        const featuredDiv = document.getElementById('featured-blogs');
+        const recentDiv = document.getElementById('recent-blogs');
+        featuredDiv.innerHTML = featured.map(blog => `
+          <div class="blog-card bg-white rounded-xl shadow-md overflow-hidden">
+            <img src="${blog.image}" class="h-64 w-full object-cover" />
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" class="h-10 w-10 rounded-full mr-4" />
+                <div>
+                  <h4 class="font-semibold">${blog.author}</h4>
+                  <p class="text-gray-500 text-sm">${new Date(blog.date).toDateString()}</p>
+                </div>
+              </div>
+              <h3 class="font-bold text-xl mb-2">${blog.title}</h3>
+              <p class="text-gray-600 mb-4">${blog.summary}</p>
+              <div class="flex items-center justify-between">
+                <a href="story.html?id=${blog.id}" class="text-orange-500 hover:text-orange-600">Read More →</a>
+              </div>
+            </div>
+          </div>
+        `).join('');
+        recentDiv.innerHTML = recent.map(blog => `
+          <div class="blog-card bg-white rounded-xl shadow-md overflow-hidden">
+            <img src="${blog.image}" class="h-48 w-full object-cover" />
+            <div class="p-6">
+              <h3 class="font-bold text-xl mb-2">${blog.title}</h3>
+              <p class="text-gray-600 mb-4">${blog.summary}</p>
+              <a href="story.html?id=${blog.id}" class="text-orange-500 hover:text-orange-600">Read More →</a>
+            </div>
+          </div>
+        `).join('');
       }
-
-      document.getElementById('logoutBtn').addEventListener('click', logout);
-      document.getElementById('mobileLogoutBtn').addEventListener('click', logout);
-
-      // Mobile menu toggle functionality
-      const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
-      const mobileMenu = document.getElementById("mobile-menu");
-
-      mobileMenuToggle.addEventListener("click", function() {
-        if (mobileMenu.classList.contains("hidden")) {
-          // Show menu
-          mobileMenu.classList.remove("hidden");
-          setTimeout(() => {
-            mobileMenu.classList.remove("opacity-0", "-translate-y-5");
-            mobileMenu.classList.add("opacity-100", "translate-y-0");
-          }, 10);
-        } else {
-          // Hide menu
-          mobileMenu.classList.remove("opacity-100", "translate-y-0");
-          mobileMenu.classList.add("opacity-0", "-translate-y-5");
-          setTimeout(() => {
-            mobileMenu.classList.add("hidden");
-          }, 200);
-        }
-      });
-
-      // Close mobile menu when clicking outside
-      document.addEventListener("click", function(e) {
-        if (!mobileMenuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
-          if (!mobileMenu.classList.contains("hidden")) {
-            mobileMenu.classList.remove("opacity-100", "translate-y-0");
-            mobileMenu.classList.add("opacity-0", "-translate-y-5");
-            setTimeout(() => {
-              mobileMenu.classList.add("hidden");
-            }, 200);
-          }
-        }
-      });
-
-      // Close mobile menu when clicking on a link
-      const mobileMenuLinks = mobileMenu.querySelectorAll("a");
-      mobileMenuLinks.forEach(link => {
-        link.addEventListener("click", function() {
-          mobileMenu.classList.remove("opacity-100", "translate-y-0");
-          mobileMenu.classList.add("opacity-0", "-translate-y-5");
-          setTimeout(() => {
-            mobileMenu.classList.add("hidden");
-          }, 200);
-        });
+      document.addEventListener('DOMContentLoaded', function() {
+        renderBlogs();
       });
     </script>
+    <script src="public/js/navigation.js"></script>
   </body>
 </html>

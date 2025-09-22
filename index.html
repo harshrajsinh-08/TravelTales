@@ -46,6 +46,22 @@
         border-radius: 12px;
         display: inline-block;
       }
+      .story-card {
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .story-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+      .blog-card {
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .blog-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
     </style>
   </head>
   <body class="bg-gray-50">
@@ -134,7 +150,7 @@
       <h2 class="text-3xl font-bold mb-8">Featured Travel Stories</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
   <!-- Cards hai -->
-        <div class="story-card bg-white rounded-xl shadow-md overflow-hidden">
+        <div class="story-card bg-white rounded-xl shadow-md overflow-hidden" onclick="openStory('rajasthan')">
           <img
             src="https://plus.unsplash.com/premium_photo-1691031428827-adf34ee712d4?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             class="h-48 w-full object-cover"
@@ -146,7 +162,7 @@
             </p>
           </div>
         </div>
-        <div class="story-card bg-white rounded-xl shadow-md overflow-hidden">
+        <div class="story-card bg-white rounded-xl shadow-md overflow-hidden" onclick="openStory('kerala')">
           <img
             src="https://plus.unsplash.com/premium_photo-1664303556708-4b582f8c6b5b?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           />
@@ -157,7 +173,7 @@
             </p>
           </div>
         </div>
-        <div class="story-card bg-white rounded-xl shadow-md overflow-hidden">
+        <div class="story-card bg-white rounded-xl shadow-md overflow-hidden" onclick="openStory('himalaya')">
           <img
             src="https://images.unsplash.com/photo-1494806812796-244fe51b774d?q=80&w=2934&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             class="h-48 w-full object-cover"
@@ -177,7 +193,7 @@
       <div class="container mx-auto px-4">
         <h2 class="text-3xl font-bold mb-8">Travel Blogs</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="blog-card bg-white rounded-xl shadow-md overflow-hidden">
+          <div class="blog-card bg-white rounded-xl shadow-md overflow-hidden" onclick="openBlog('delhi-street-food')">
             <img
               src="https://plus.unsplash.com/premium_photo-1731606078756-d9102149265c?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               class="h-48 w-full object-cover"
@@ -191,7 +207,7 @@
               </p>
             </div>
           </div>
-          <div class="blog-card bg-white rounded-xl shadow-md overflow-hidden">
+          <div class="blog-card bg-white rounded-xl shadow-md overflow-hidden" onclick="openBlog('goa-weekend')">
             <img
               src="https://media.istockphoto.com/id/1325412864/photo/night-celebration-party-on-the-beach.jpg?s=1024x1024&w=is&k=20&c=3kHSWb-WtVs7BaQ_-0FcIFmtYJ2SxTv3-ki2JDvqbBQ="
               class="h-48 w-full object-cover"
@@ -203,7 +219,7 @@
               </p>
             </div>
           </div>
-          <div class="blog-card bg-white rounded-xl shadow-md overflow-hidden">
+          <div class="blog-card bg-white rounded-xl shadow-md overflow-hidden" onclick="openBlog('varanasi-lights')">
             <img
               src="https://media.istockphoto.com/id/537988165/photo/varanasi.jpg?s=1024x1024&w=is&k=20&c=zlypUzvUt1fFpvA7ESTKB6UE4KEY7paAizZWVhQmz2E="
               class="h-48 w-full object-cover"
@@ -235,8 +251,8 @@
         </div>
   <!-- Profile Details hai -->
         <div>
-          <h3 class="text-2xl font-bold">Harshrajsinh Zala</h3>
-          <p class="text-gray-600">
+          <h3 id="profileName" class="text-2xl font-bold">Loading...</h3>
+          <p id="profileDescription" class="text-gray-600">
             Passionate about discovering India's vibrant culture and hidden
             gems.
           </p>
@@ -331,8 +347,40 @@
     </footer>
 
     <!-- Map ke liye JavaScript hai -->
+    <script src="users.js"></script>
     <script src="public/js/navigation.js"></script>
     <script src="script.js"></script>
+    <script>
+      // Load and display user profile information in the profile section
+      document.addEventListener('DOMContentLoaded', () => {
+        const userEmail = localStorage.getItem('userEmail');
+        const userName = localStorage.getItem('userName');
+        
+        if (userEmail && userName) {
+          // Update profile name
+          const profileNameElement = document.getElementById('profileName');
+          if (profileNameElement) {
+            profileNameElement.textContent = userName;
+          }
+          
+          // Update profile description to include user's email
+          const profileDescriptionElement = document.getElementById('profileDescription');
+          if (profileDescriptionElement) {
+            profileDescriptionElement.textContent = `Travel enthusiast sharing adventures. Join me on my journey!`;
+          }
+        }
+      });
+      
+      // Function to open story detail pages
+      function openStory(storyId) {
+        window.location.href = `story-detail.html?story=${storyId}`;
+      }
+      
+      // Function to open blog detail pages
+      function openBlog(blogId) {
+        window.location.href = `blog-detail.html?blog=${blogId}`;
+      }
+    </script>
   </body>
 </html>
   </body>

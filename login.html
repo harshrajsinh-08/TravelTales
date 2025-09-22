@@ -43,7 +43,7 @@
         background: linear-gradient(135deg, #f97316, #ea580c);
       }
       .social-btn {
-        /* Simple button styling */
+        
       }
     </style>
   </head>
@@ -129,7 +129,7 @@
             </button>
           </form>
 
-          <!-- Divider hai -->
+          <!-- Divider -->
           <div class="my-6 flex items-center">
             <div class="flex-1 border-t border-gray-300"></div>
             <span class="px-4 text-sm text-gray-500">or continue with</span>
@@ -152,7 +152,7 @@
           <div class="text-center mt-6">
             <p class="text-sm text-gray-600">
               Don't have an account?
-              <a href="#" class="text-orange-500 hover:text-orange-600 font-medium">
+              <a href="signup.html" class="text-orange-500 hover:text-orange-600 font-medium">
                 Sign up here
               </a>
             </p>
@@ -162,6 +162,7 @@
     </section>
 
   <!-- JavaScript hai -->
+    <script src="users.js"></script>
     <script>
   // Password toggle karne ka function hai
       const togglePassword = document.getElementById('togglePassword');
@@ -191,10 +192,12 @@
         const password = document.getElementById('password').value;
         
   // Simple validation hai
-        if (email === 'demo@traveltales.com' && password === 'demo123') {
+        const user = validateLogin(email, password);
+        if (user) {
           // Login status store karo
           localStorage.setItem('isLoggedIn', 'true');
           localStorage.setItem('userEmail', email);
+          localStorage.setItem('userName', user.name);
           
           // Success message dikhana hai
           showMessage('Login successful! Redirecting...', 'success');
@@ -203,19 +206,7 @@
           setTimeout(() => {
             window.location.href = 'index.html';
           }, 1500);
-        } 
-        /*else if (email && password) {
-          // Koi bhi email/password ho, login allow karo (demo ke liye)
-          localStorage.setItem('isLoggedIn', 'true');
-          localStorage.setItem('userEmail', email);
-          
-          showMessage('Login successful! Redirecting...', 'success');
-          
-          setTimeout(() => {
-            window.location.href = 'index.html';
-          }, 1500);
-        } */
-        else {
+        } else {
           showMessage('Please enter correct credentials', 'error');
         }
       });

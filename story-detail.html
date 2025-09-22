@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Story Details - TravelTales</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        scroll-behavior: smooth;
+      }
+      .nav-link:hover {
+        color: #f97316;
+      }
+      .hero-image {
+        height: 60vh;
+        object-fit: cover;
+      }
+      .back-btn {
+        transition: all 0.3s ease;
+      }
+      .back-btn:hover {
+        transform: translateX(-5px);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+  <!-- Navbar -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md z-50 shadow-sm">
+      <div class="container mx-auto px-4 py-4">
+        <div class="flex justify-between items-center">
+          <a href="index.html" class="text-2xl font-bold text-orange-500">TravelTales</a>
+          <div class="hidden md:flex space-x-6">
+            <a href="explore.html" class="nav-link">Explore</a>
+            <a href="blogs.html" class="nav-link">Blog</a>
+            <a href="index.html#plan-trip" class="nav-link">My Trips</a>
+            <a href="profile.html" class="nav-link">Profile</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+          </div>
+          <div class="flex items-center space-x-4">
+            <span id="userEmail" class="hidden text-sm text-gray-600"></span>
+            <button
+              id="logoutBtn"
+              class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm transition"
+            >
+              Logout
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Story Content -->
+    <main class="pt-20">
+      <!-- Back Button -->
+      <div class="container mx-auto px-4 py-4">
+        <button onclick="history.back()" class="back-btn flex items-center text-orange-500 hover:text-orange-600 font-medium">
+          <i class="bi bi-arrow-left mr-2"></i>
+          Back to Stories
+        </button>
+      </div>
+
+      <!-- Story Header -->
+      <div class="container mx-auto px-4">
+        <div id="storyContent" class="bg-white rounded-xl shadow-lg overflow-hidden">
+          <!-- Content will be loaded dynamically -->
+        </div>
+      </div>
+
+      <!-- Related Stories -->
+      <section class="container mx-auto px-4 py-16">
+        <h2 class="text-2xl font-bold mb-8">Related Stories</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-white rounded-xl shadow-md overflow-hidden" onclick="openStory('kerala')">
+            <img
+              src="https://plus.unsplash.com/premium_photo-1664303556708-4b582f8c6b5b?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              class="h-48 w-full object-cover"
+            />
+            <div class="p-6">
+              <h3 class="font-bold text-xl mb-2">Serene Backwaters of Kerala</h3>
+              <p class="text-gray-600">Discover tranquility in the lush greenery of Alleppey...</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl shadow-md overflow-hidden" onclick="openStory('himalaya')">
+            <img
+              src="https://images.unsplash.com/photo-1494806812796-244fe51b774d?q=80&w=2934&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              class="h-48 w-full object-cover"
+            />
+            <div class="p-6">
+              <h3 class="font-bold text-xl mb-2">Himalayan Adventures</h3>
+              <p class="text-gray-600">Trekking in Himachal's snow-capped mountains...</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4">TravelTales</h3>
+            <p class="text-gray-400">Share your journey, inspire others.</p>
+          </div>
+          <div>
+            <h4 class="font-bold mb-4">Quick Links</h4>
+            <ul class="space-y-2">
+              <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
+              <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
+              <li><a href="privacy.html" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold mb-4">Follow Us</h4>
+            <div class="flex space-x-4">
+              <a href="#" class="text-2xl hover:text-orange-500"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="text-2xl hover:text-orange-500"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="text-2xl hover:text-orange-500"><i class="bi bi-instagram"></i></a>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-bold mb-4">Newsletter</h4>
+            <form class="flex flex-col space-y-2">
+              <input type="email" placeholder="Your email" class="px-4 py-2 rounded-lg text-gray-800" />
+              <button class="bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded-lg transition">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="users.js"></script>
+    <script src="public/js/navigation.js"></script>
+    <script>
+      // Story data
+      const stories = {
+        rajasthan: {
+          title: "Rajasthan's Desert Majesty",
+          image: "https://plus.unsplash.com/premium_photo-1691031428827-adf34ee712d4?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          author: "Travel Enthusiast",
+          date: "March 15, 2024",
+          readTime: "8 min read",
+          content: `
+            <p class="text-lg text-gray-700 mb-6">The golden sands of Rajasthan stretch endlessly under the blazing sun, creating a mesmerizing landscape that seems to transport you to another world. My journey through the Thar Desert was nothing short of magical.</p>
+            
+            <h3 class="text-2xl font-bold mb-4">The Adventure Begins</h3>
+            <p class="text-gray-700 mb-6">Starting from Jaisalmer, known as the "Golden City," I embarked on a camel safari that would take me deep into the heart of the desert. The city itself is a marvel, with its golden sandstone architecture gleaming in the sunlight.</p>
+            
+            <h3 class="text-2xl font-bold mb-4">Camel Safari Experience</h3>
+            <p class="text-gray-700 mb-6">Riding a camel through the dunes is an experience like no other. The gentle swaying motion, the vast expanse of sand, and the complete silence of the desert create a meditative atmosphere. Our guide, a local Rajasthani with decades of experience, shared fascinating stories about desert life.</p>
+            
+            <h3 class="text-2xl font-bold mb-4">Desert Nights</h3>
+            <p class="text-gray-700 mb-6">As the sun set, the desert transformed into a canvas of colors - deep oranges, purples, and reds painted the sky. The night brought a spectacular display of stars, unpolluted by city lights. We camped under this celestial canopy, sharing stories around a campfire while enjoying traditional Rajasthani cuisine.</p>
+            
+            <h3 class="text-2xl font-bold mb-4">Cultural Immersion</h3>
+            <p class="text-gray-700 mb-6">The highlight was meeting the local communities who call this harsh environment home. Their resilience, hospitality, and rich cultural traditions provide a deep insight into desert life. Folk music and dance performances under the starlit sky created memories that will last a lifetime.</p>
+            
+            <h3 class="text-2xl font-bold mb-4">Tips for Desert Travelers</h3>
+            <ul class="list-disc pl-6 text-gray-700 mb-6">
+              <li>Best time to visit: October to March</li>
+              <li>Carry plenty of water and sun protection</li>
+              <li>Respect local customs and traditions</li>
+              <li>Book tours with reputable local operators</li>
+              <li>Don't miss the sunrise and sunset views</li>
+            </ul>
+          `
+        },
+        kerala: {
+          title: "Serene Backwaters of Kerala",
+          image: "https://plus.unsplash.com/premium_photo-1664303556708-4b582f8c6b5b?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          author: "Nature Explorer",
+          date: "April 22, 2024",
+          readTime: "6 min read",
+          content: `
+            <p class="text-lg text-gray-700 mb-6">Kerala's backwaters offer a tranquil escape into nature's lap, where time seems to slow down and peace envelops your soul. My houseboat journey through Alleppey was a revelation of natural beauty and cultural richness.</p>
+            
+            <h3 class="text-2xl font-bold mb-4">The Houseboat Experience</h3>
+            <p class="text-gray-700 mb-6">Floating through the intricate network of canals, rivers, and lakes on a traditional kettuvallam (houseboat) is pure magic. These converted rice barges offer all modern amenities while maintaining their rustic charm.</p>
+            
+            <h3 class="text-2xl font-bold mb-4">Natural Wonders</h3>
+            <p class="text-gray-700 mb-6">The backwaters are home to diverse wildlife - from colorful kingfishers and herons to playful otters. The lush green landscape, dotted with coconut palms and paddy fields, creates a picture-perfect setting that changes with every turn.</p>
+            
+            <h3 class="text-2xl font-bold mb-4">Local Life</h3>
+            <p class="text-gray-700 mb-6">Witnessing daily life along the waterways is fascinating. Children wave from the banks, fishermen cast their nets, and women wash clothes by the water's edge. It's a glimpse into a way of life that has remained unchanged for centuries.</p>
+            
+            <h3 class="text-2xl font-bold mb-4">Culinary Delights</h3>
+            <p class="text-gray-700 mb-6">Fresh seafood, coconut-based curries, and traditional Kerala meals cooked on board make the journey a culinary adventure. The karimeen (pearl spot fish) curry is a must-try delicacy.</p>
+          `
+        },
+        himalaya: {
+          title: "Himalayan Adventures",
+          image: "https://images.unsplash.com/photo-1494806812796-244fe51b774d?q=80&w=2934&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          author: "Mountain Climber",
+          date: "May 10, 2024",
+          readTime: "10 min read",
+          content: `
+            <p class="text-lg text-gray-700 mb-6">The Himalayas stand as nature's most magnificent creation, offering adventures that test your limits and reward you with breathtaking beauty. My trekking expedition in Himachal Pradesh was a journey of self-discovery.</p>
+            
+            <h3 class="text-2xl font-bold mb-4">Preparing for the Trek</h3>
+            <p class="text-gray-700 mb-6">Proper preparation is crucial for Himalayan treks. Physical fitness, appropriate gear, and mental preparedness are essential. I spent months preparing for this high-altitude adventure.</p>
+            
+            <h3 class="text-2xl font-bold mb-4">The Ascent</h3>
+            <p class="text-gray-700 mb-6">Each day brought new challenges and rewards. The thin air, rocky terrain, and unpredictable weather tested our endurance, but the spectacular views of snow-capped peaks made every step worthwhile.</p>
+            
+            <h3 class="text-2xl font-bold mb-4">Mountain Communities</h3>
+            <p class="text-gray-700 mb-6">The warmth and hospitality of mountain communities is remarkable. Despite living in harsh conditions, they welcome travelers with open hearts and share their ancient wisdom about mountain life.</p>
+            
+            <h3 class="text-2xl font-bold mb-4">Spiritual Connection</h3>
+            <p class="text-gray-700 mb-6">There's something deeply spiritual about being surrounded by these ancient peaks. The silence, the pristine air, and the sheer scale of nature create a profound sense of connection with something greater than ourselves.</p>
+          `
+        }
+      };
+
+      // Function to load story content
+      function loadStoryContent() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const storyId = urlParams.get('story');
+        const story = stories[storyId];
+
+        if (story) {
+          document.title = `${story.title} - TravelTales`;
+          const storyContent = document.getElementById('storyContent');
+          
+          storyContent.innerHTML = `
+            <img src="${story.image}" alt="${story.title}" class="hero-image w-full" />
+            <div class="p-8">
+              <div class="flex items-center gap-4 text-sm text-gray-500 mb-4">
+                <span>By ${story.author}</span>
+                <span>•</span>
+                <span>${story.date}</span>
+                <span>•</span>
+                <span>${story.readTime}</span>
+              </div>
+              <h1 class="text-4xl font-bold mb-8">${story.title}</h1>
+              <div class="prose max-w-none">
+                ${story.content}
+              </div>
+              
+              <!-- Social Share -->
+              <div class="mt-12 pt-8 border-t border-gray-200">
+                <h3 class="text-lg font-bold mb-4">Share this story</h3>
+                <div class="flex space-x-4">
+                  <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition">
+                    <i class="bi bi-facebook mr-2"></i>Facebook
+                  </button>
+                  <button class="bg-blue-400 hover:bg-blue-500 text-white px-4 py-2 rounded-lg transition">
+                    <i class="bi bi-twitter mr-2"></i>Twitter
+                  </button>
+                  <button class="bg-blue-800 hover:bg-blue-900 text-white px-4 py-2 rounded-lg transition">
+                    <i class="bi bi-linkedin mr-2"></i>LinkedIn
+                  </button>
+                </div>
+              </div>
+            </div>
+          `;
+        } else {
+          // Story not found
+          document.getElementById('storyContent').innerHTML = `
+            <div class="p-8 text-center">
+              <h1 class="text-3xl font-bold mb-4">Story Not Found</h1>
+              <p class="text-gray-600 mb-6">The story you're looking for doesn't exist.</p>
+              <a href="index.html" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg transition">
+                Back to Home
+              </a>
+            </div>
+          `;
+        }
+      }
+
+      // Function to open another story
+      function openStory(storyId) {
+        window.location.href = `story-detail.html?story=${storyId}`;
+      }
+
+      // Load story content when page loads
+      document.addEventListener('DOMContentLoaded', loadStoryContent);
+    </script>
+  </body>
+</html>

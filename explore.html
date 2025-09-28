@@ -366,17 +366,15 @@
     function planTrip(destination) {
       // Close modal and navigate to trip planning section
       closeDestinationModal();
-      
-      // Set the destination in the search input
+      //set destination jo user ne search kari
       const searchInput = document.getElementById('searchInput');
       if (searchInput) {
         const destinationName = destinationDetails[destination].name;
         searchInput.value = destinationName;
         
-        // Trigger the location selection
         selectLocation(destinationName);
       } else {
-        // If we're not on a page with the search input, navigate to index
+        // if not on the page of input then plan trip pe navigate karo
         window.location.href = `index.html#plan-trip`;
       }
     }

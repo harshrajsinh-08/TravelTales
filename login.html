@@ -183,7 +183,7 @@
       }
 
       document.addEventListener('DOMContentLoaded', function() {
-        // Password toggle functionality
+        // show Password toggle
         const togglePassword = document.getElementById('togglePassword');
         const passwordInput = document.getElementById('password');
 
@@ -213,8 +213,7 @@
             const email = document.getElementById('email').value.trim();
             const password = document.getElementById('password').value;
             
-            console.log('Login attempt:', email, password); // Debug log
-            
+            console.log('Login attempt:', email, password);
             // Validate credentials
             const user = demoUsers.find(u => u.email === email && u.password === password);
             
@@ -237,7 +236,7 @@
           });
         }
 
-        // Social login buttons (demo only)
+        // Social login OAuth
         document.querySelectorAll('.social-btn').forEach(btn => {
           btn.addEventListener('click', function() {
             const provider = this.textContent.trim();

@@ -365,6 +365,7 @@
           const badgesContainer = document.getElementById('profileBadges');
           badgesContainer.innerHTML = '';
           const badges = userBadges.split(',').map(badge => badge.trim()).filter(badge => badge);
+          
           badges.forEach(badge => {
             const span = document.createElement('span');
             span.className = 'badge bg-white/20';

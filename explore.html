@@ -108,7 +108,7 @@
               Home to the iconic Taj Mahal, a symbol of eternal love and
               architectural brilliance.
             </p>
-            <a href="#" class="text-orange-500 hover:text-orange-600"
+            <a href="#" class="text-orange-500 hover:text-orange-600" onclick="showDestinationDetails('agra')"
               >Explore More →</a
             >
           </div>
@@ -124,7 +124,7 @@
               The City of Lakes, known for its romantic setting and royal
               heritage.
             </p>
-            <a href="#" class="text-orange-500 hover:text-orange-600"
+            <a href="#" class="text-orange-500 hover:text-orange-600" onclick="showDestinationDetails('udaipur')"
               >Explore More →</a
             >
           </div>
@@ -140,7 +140,7 @@
               The yoga capital offering spiritual experiences and adventure
               sports.
             </p>
-            <a href="#" class="text-orange-500 hover:text-orange-600"
+            <a href="#" class="text-orange-500 hover:text-orange-600" onclick="showDestinationDetails('rishikesh')"
               >Explore More →</a
             >
           </div>
@@ -185,8 +185,22 @@
       </div>
     </section>
 
+  <!-- Destination Details Modal -->
+    <div id="destinationModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+      <div class="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <div class="relative">
+          <button onclick="closeDestinationModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 z-10">
+            <i class="bi bi-x-lg text-2xl"></i>
+          </button>
+          <div id="modalContent">
+            <!-- Content will be loaded here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
   <!-- Footer hai -->
-    <footer class="bg-gray-800 text-white py-12">
+    <footer class="bg-gray-800 text-white py-12"></footer>
       <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
@@ -245,5 +259,141 @@
   <!-- Mobile Navigation JavaScript hai -->
   <script src="public/js/navigation.js"></script>
   <script src="script.js"></script>
+  
+  <script>
+    // Destination details data
+    const destinationDetails = {
+      agra: {
+        name: "Agra",
+        image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        description: "Home to the iconic Taj Mahal, a symbol of eternal love and architectural brilliance.",
+        highlights: [
+          "Taj Mahal - UNESCO World Heritage Site",
+          "Agra Fort - Mughal architectural masterpiece",
+          "Mehtab Bagh - Perfect sunset views of Taj Mahal",
+          "Itmad-ud-Daulah - Baby Taj with intricate marble work"
+        ],
+        bestTime: "October to March",
+        activities: ["Photography", "Heritage walks", "Sunrise/Sunset viewing", "Shopping for marble crafts"],
+        tips: "Visit Taj Mahal early morning for fewer crowds and better lighting. Book tickets online in advance."
+      },
+      udaipur: {
+        name: "Udaipur",
+        image: "https://plus.unsplash.com/premium_photo-1661964079694-ccfaf7dc8028?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dWRhaXB1cnxlbnwwfHwwfHx8MA%3D%3D",
+        description: "The City of Lakes, known for its romantic setting and royal heritage.",
+        highlights: [
+          "City Palace - Magnificent palace complex",
+          "Lake Pichola - Scenic boat rides",
+          "Jag Mandir - Island palace",
+          "Saheliyon Ki Bari - Beautiful gardens"
+        ],
+        bestTime: "September to March",
+        activities: ["Boat rides", "Palace tours", "Cultural shows", "Rooftop dining"],
+        tips: "Take a sunset boat ride on Lake Pichola for breathtaking views. Stay in a heritage hotel for the full royal experience."
+      },
+      rishikesh: {
+        name: "Rishikesh",
+        image: "https://images.unsplash.com/photo-1720819029162-8500607ae232?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        description: "The yoga capital offering spiritual experiences and adventure sports.",
+        highlights: [
+          "Laxman Jhula - Iconic suspension bridge",
+          "Ram Jhula - Another famous bridge",
+          "Parmarth Niketan - Spiritual ashram",
+          "Triveni Ghat - Holy confluence point"
+        ],
+        bestTime: "February to June, September to November",
+        activities: ["White water rafting", "Yoga classes", "Meditation", "Bungee jumping", "Trekking"],
+        tips: "Book river rafting in advance during peak season. Attend the evening Ganga Aarti for a spiritual experience."
+      }
+    };
+
+    function showDestinationDetails(destination) {
+      const details = destinationDetails[destination];
+      if (!details) return;
+
+      const modalContent = document.getElementById('modalContent');
+      modalContent.innerHTML = `
+        <img src="${details.image}" alt="${details.name}" class="w-full h-64 object-cover rounded-t-xl">
+        <div class="p-6">
+          <h2 class="text-3xl font-bold mb-4">${details.name}</h2>
+          <p class="text-gray-600 mb-6">${details.description}</p>
+          
+          <div class="mb-6">
+            <h3 class="text-xl font-semibold mb-3">Top Highlights</h3>
+            <ul class="space-y-2">
+              ${details.highlights.map(highlight => `<li class="flex items-start"><i class="bi bi-check-circle-fill text-orange-500 mr-2 mt-1"></i>${highlight}</li>`).join('')}
+            </ul>
+          </div>
+          
+          <div class="grid md:grid-cols-2 gap-6 mb-6">
+            <div>
+              <h3 class="text-xl font-semibold mb-3">Best Time to Visit</h3>
+              <p class="text-gray-600">${details.bestTime}</p>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold mb-3">Popular Activities</h3>
+              <div class="flex flex-wrap gap-2">
+                ${details.activities.map(activity => `<span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">${activity}</span>`).join('')}
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-blue-50 p-4 rounded-lg">
+            <h3 class="text-lg font-semibold mb-2 text-blue-800">Travel Tips</h3>
+            <p class="text-blue-700">${details.tips}</p>
+          </div>
+          
+          <div class="mt-6 flex gap-4">
+            <button onclick="planTrip('${destination}')" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg transition">
+              Plan Trip
+            </button>
+            <button onclick="closeDestinationModal()" class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-2 rounded-lg transition">
+              Close
+            </button>
+          </div>
+        </div>
+      `;
+      
+      document.getElementById('destinationModal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDestinationModal() {
+      document.getElementById('destinationModal').classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    function planTrip(destination) {
+      // Close modal and navigate to trip planning section
+      closeDestinationModal();
+      
+      // Set the destination in the search input
+      const searchInput = document.getElementById('searchInput');
+      if (searchInput) {
+        const destinationName = destinationDetails[destination].name;
+        searchInput.value = destinationName;
+        
+        // Trigger the location selection
+        selectLocation(destinationName);
+      } else {
+        // If we're not on a page with the search input, navigate to index
+        window.location.href = `index.html#plan-trip`;
+      }
+    }
+
+    // Close modal when clicking outside
+    document.getElementById('destinationModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeDestinationModal();
+      }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeDestinationModal();
+      }
+    });
+  </script>
   </body>
 </html>

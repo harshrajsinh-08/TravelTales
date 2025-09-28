@@ -42,6 +42,9 @@
       .btn-primary {
         background: linear-gradient(135deg, #f97316, #ea580c);
       }
+      .social-btn {
+        
+      }
     </style>
   </head>
   <body class="bg-gray-50">
@@ -159,53 +162,88 @@
     </section>
 
   <!-- JavaScript hai -->
-    <script src="users.js"></script>
     <script>
-  // Password toggle karne ka function hai
-      const togglePassword = document.getElementById('togglePassword');
-      const passwordInput = document.getElementById('password');
-
-      togglePassword.addEventListener('click', function() {
-        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-        passwordInput.setAttribute('type', type);
-        
-        const icon = this.querySelector('i');
-        if (type === 'password') {
-          icon.classList.remove('bi-eye-slash');
-          icon.classList.add('bi-eye');
-        } else {
-          icon.classList.remove('bi-eye');
-          icon.classList.add('bi-eye-slash');
+      // Demo users data
+      const demoUsers = [
+        {
+          name: "Demo User",
+          email: "demo@traveltales.com",
+          password: "demo123"
+        },
+        {
+          name: "Test User",
+          email: "test@example.com", 
+          password: "test123"
         }
-      });
+      ];
 
-  // Login form submit karne ka function hai
-      const loginForm = document.getElementById('loginForm');
-      
-      loginForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-        
-  // Simple validation hai
-        const user = validateLogin(email, password);
-        if (user) {
-          // Login status store karo
-          localStorage.setItem('isLoggedIn', 'true');
-          localStorage.setItem('userEmail', email);
-          localStorage.setItem('userName', user.name);
-          
-          // Success message dikhana hai
-          showMessage('Login successful! Redirecting...', 'success');
-          
-          // 1.5 second ke baad main page par redirect karo
-          setTimeout(() => {
-            window.location.href = 'index.html';
-          }, 1500);
-        } else {
-          showMessage('Please enter correct credentials', 'error');
+      // Check if user already logged in
+      if (localStorage.getItem('isLoggedIn') === 'true') {
+        window.location.href = 'index.html';
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        // Password toggle functionality
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+
+        if (togglePassword && passwordInput) {
+          togglePassword.addEventListener('click', function() {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            
+            const icon = this.querySelector('i');
+            if (type === 'password') {
+              icon.classList.remove('bi-eye-slash');
+              icon.classList.add('bi-eye');
+            } else {
+              icon.classList.remove('bi-eye');
+              icon.classList.add('bi-eye-slash');
+            }
+          });
         }
+
+        // Login form submit handler
+        const loginForm = document.getElementById('loginForm');
+        
+        if (loginForm) {
+          loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            
+            console.log('Login attempt:', email, password); // Debug log
+            
+            // Validate credentials
+            const user = demoUsers.find(u => u.email === email && u.password === password);
+            
+            if (user) {
+              // Store login status
+              localStorage.setItem('isLoggedIn', 'true');
+              localStorage.setItem('userEmail', email);
+              localStorage.setItem('userName', user.name);
+              
+              // Show success message
+              showMessage('Login successful! Redirecting...', 'success');
+              
+              // Redirect after 1.5 seconds
+              setTimeout(() => {
+                window.location.href = 'index.html';
+              }, 1500);
+            } else {
+              showMessage('Invalid email or password. Try: demo@traveltales.com / demo123', 'error');
+            }
+          });
+        }
+
+        // Social login buttons (demo only)
+        document.querySelectorAll('.social-btn').forEach(btn => {
+          btn.addEventListener('click', function() {
+            const provider = this.textContent.trim();
+            showMessage(`${provider} login not implemented in demo`, 'error');
+          });
+        });
       });
 
   // Message dikhane ka function hai

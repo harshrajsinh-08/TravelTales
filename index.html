@@ -238,36 +238,61 @@
   <!-- Profile Section hai -->
     <section id="profile-section" class="container mx-auto px-4 py-16">
       <h2 class="text-3xl font-bold mb-8">My Profile</h2>
-      <div
-        class="bg-white rounded-xl shadow-md p-6 flex flex-col md:flex-row gap-6"
-      >
-  <!-- Profile Picture hai -->
+      <div class="bg-white rounded-xl shadow-md p-6 flex flex-col md:flex-row gap-6">
+        <!-- Profile Picture -->
         <div class="flex-shrink-0">
           <img
+            id="profileImage"
             src="https://media.istockphoto.com/id/1364817609/vector/sketch-of-tourist-photographer-taking-picture-on-camera-outdoors.jpg?s=1024x1024&w=is&k=20&c=cEEd8oxtEmxdx-acWac5Hw4eQhQjhjBlLfa4acWciuQ="
             alt="Profile Picture"
             class="h-32 w-32 rounded-full object-cover border-4 border-orange-500"
           />
         </div>
-  <!-- Profile Details hai -->
-        <div>
-          <h3 id="profileName" class="text-2xl font-bold">Loading...</h3>
-          <p id="profileDescription" class="text-gray-600">
-            Passionate about discovering India's vibrant culture and hidden
-            gems.
-          </p>
-          <div class="mt-4">
-            <span class="badge">Explorer</span>
-            <span class="badge">Photographer</span>
-            <span class="badge">Foodie</span>
+        <!-- Profile Details -->
+        <div class="flex-1">
+          <!-- Name -->
+          <div class="mb-4">
+            <h3 id="profileName" class="text-2xl font-bold">Loading...</h3>
+            <input id="profileNameEdit" type="text" class="hidden text-2xl font-bold w-full p-2 border rounded-lg" placeholder="Your Name">
           </div>
-          <div class="mt-6">
+          
+          <!-- Description -->
+          <div class="mb-4">
+            <p id="profileDescription" class="text-gray-600">
+              Passionate about discovering India's vibrant culture and hidden gems.
+            </p>
+            <textarea id="profileDescriptionEdit" class="hidden w-full p-2 border rounded-lg text-gray-600" rows="3" placeholder="Tell us about yourself..."></textarea>
+          </div>
+          
+          <!-- Badges -->
+          <div class="mb-6">
+            <div id="profileBadges" class="flex flex-wrap gap-2">
+              <span class="badge">Explorer</span>
+              <span class="badge">Photographer</span>
+              <span class="badge">Foodie</span>
+            </div>
+            <input id="profileBadgesEdit" type="text" class="hidden w-full p-2 border rounded-lg mt-2" placeholder="Enter interests separated by commas (e.g., Explorer, Photographer, Foodie)">
+          </div>
+          
+          <!-- Upcoming Trips -->
+          <div>
             <h4 class="text-xl font-bold mb-2">Upcoming Trips</h4>
-            <ul class="list-disc ml-6 text-gray-600">
+            <ul id="profileTrips" class="list-disc ml-6 text-gray-600">
               <li>Road trip from Mumbai to Leh</li>
               <li>Exploring the Sundarbans</li>
               <li>Heritage tour in Jaipur</li>
             </ul>
+            <textarea id="profileTripsEdit" class="hidden w-full p-2 border rounded-lg text-gray-600" rows="3" placeholder="Enter your upcoming trips, one per line"></textarea>
+          </div>
+          
+          <!-- Edit Mode Buttons -->
+          <div id="editButtons" class="hidden mt-6 flex gap-3">
+            <button onclick="saveProfile()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition">
+              <i class="bi bi-check mr-2"></i>Save
+            </button>
+            <button onclick="cancelEdit()" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition">
+              <i class="bi bi-x mr-2"></i>Cancel
+            </button>
           </div>
         </div>
       </div>
@@ -350,37 +375,7 @@
     <script src="users.js"></script>
     <script src="public/js/navigation.js"></script>
     <script src="script.js"></script>
-    <script>
-      // Load and display user profile information in the profile section
-      document.addEventListener('DOMContentLoaded', () => {
-        const userEmail = localStorage.getItem('userEmail');
-        const userName = localStorage.getItem('userName');
-        
-        if (userEmail && userName) {
-          // Update profile name
-          const profileNameElement = document.getElementById('profileName');
-          if (profileNameElement) {
-            profileNameElement.textContent = userName;
-          }
-          
-          // Update profile description to include user's email
-          const profileDescriptionElement = document.getElementById('profileDescription');
-          if (profileDescriptionElement) {
-            profileDescriptionElement.textContent = `Travel enthusiast sharing adventures. Join me on my journey!`;
-          }
-        }
-      });
-      
-      // Function to open story detail pages
-      function openStory(storyId) {
-        window.location.href = `story-detail.html?story=${storyId}`;
-      }
-      
-      // Function to open blog detail pages
-      function openBlog(blogId) {
-        window.location.href = `blog-detail.html?blog=${blogId}`;
-      }
-    </script>
+    
   </body>
 </html>
   </body>

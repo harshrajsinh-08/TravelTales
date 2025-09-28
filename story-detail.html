@@ -34,11 +34,13 @@
     </style>
   </head>
   <body class="bg-gray-50">
-  <!-- Navbar -->
+    <!-- Navbar -->
     <nav class="fixed w-full bg-white/90 backdrop-blur-md z-50 shadow-sm">
       <div class="container mx-auto px-4 py-4">
         <div class="flex justify-between items-center">
-          <a href="index.html" class="text-2xl font-bold text-orange-500">TravelTales</a>
+          <a href="index.html" class="text-2xl font-bold text-orange-500"
+            >TravelTales</a
+          >
           <div class="hidden md:flex space-x-6">
             <a href="explore.html" class="nav-link">Explore</a>
             <a href="blogs.html" class="nav-link">Blog</a>
@@ -64,7 +66,10 @@
     <main class="pt-20">
       <!-- Back Button -->
       <div class="container mx-auto px-4 py-4">
-        <button onclick="history.back()" class="back-btn flex items-center text-orange-500 hover:text-orange-600 font-medium">
+        <button
+          onclick="history.back()"
+          class="back-btn flex items-center text-orange-500 hover:text-orange-600 font-medium"
+        >
           <i class="bi bi-arrow-left mr-2"></i>
           Back to Stories
         </button>
@@ -72,7 +77,10 @@
 
       <!-- Story Header -->
       <div class="container mx-auto px-4">
-        <div id="storyContent" class="bg-white rounded-xl shadow-lg overflow-hidden">
+        <div
+          id="storyContent"
+          class="bg-white rounded-xl shadow-lg overflow-hidden"
+        >
           <!-- Content will be loaded dynamically -->
         </div>
       </div>
@@ -81,24 +89,36 @@
       <section class="container mx-auto px-4 py-16">
         <h2 class="text-2xl font-bold mb-8">Related Stories</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div class="bg-white rounded-xl shadow-md overflow-hidden" onclick="openStory('kerala')">
+          <div
+            class="bg-white rounded-xl shadow-md overflow-hidden"
+            onclick="openStory('kerala')"
+          >
             <img
               src="https://plus.unsplash.com/premium_photo-1664303556708-4b582f8c6b5b?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               class="h-48 w-full object-cover"
             />
             <div class="p-6">
-              <h3 class="font-bold text-xl mb-2">Serene Backwaters of Kerala</h3>
-              <p class="text-gray-600">Discover tranquility in the lush greenery of Alleppey...</p>
+              <h3 class="font-bold text-xl mb-2">
+                Serene Backwaters of Kerala
+              </h3>
+              <p class="text-gray-600">
+                Discover tranquility in the lush greenery of Alleppey...
+              </p>
             </div>
           </div>
-          <div class="bg-white rounded-xl shadow-md overflow-hidden" onclick="openStory('himalaya')">
+          <div
+            class="bg-white rounded-xl shadow-md overflow-hidden"
+            onclick="openStory('himalaya')"
+          >
             <img
               src="https://images.unsplash.com/photo-1494806812796-244fe51b774d?q=80&w=2934&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               class="h-48 w-full object-cover"
             />
             <div class="p-6">
               <h3 class="font-bold text-xl mb-2">Himalayan Adventures</h3>
-              <p class="text-gray-600">Trekking in Himachal's snow-capped mountains...</p>
+              <p class="text-gray-600">
+                Trekking in Himachal's snow-capped mountains...
+              </p>
             </div>
           </div>
         </div>
@@ -116,24 +136,50 @@
           <div>
             <h4 class="font-bold mb-4">Quick Links</h4>
             <ul class="space-y-2">
-              <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
-              <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
-              <li><a href="privacy.html" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+              <li>
+                <a href="about.html" class="text-gray-400 hover:text-white"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a href="contact.html" class="text-gray-400 hover:text-white"
+                  >Contact</a
+                >
+              </li>
+              <li>
+                <a href="privacy.html" class="text-gray-400 hover:text-white"
+                  >Privacy Policy</a
+                >
+              </li>
             </ul>
           </div>
           <div>
             <h4 class="font-bold mb-4">Follow Us</h4>
             <div class="flex space-x-4">
-              <a href="#" class="text-2xl hover:text-orange-500"><i class="bi bi-facebook"></i></a>
-              <a href="#" class="text-2xl hover:text-orange-500"><i class="bi bi-twitter"></i></a>
-              <a href="#" class="text-2xl hover:text-orange-500"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="text-2xl hover:text-orange-500"
+                ><i class="bi bi-facebook"></i
+              ></a>
+              <a href="#" class="text-2xl hover:text-orange-500"
+                ><i class="bi bi-twitter"></i
+              ></a>
+              <a href="#" class="text-2xl hover:text-orange-500"
+                ><i class="bi bi-instagram"></i
+              ></a>
             </div>
           </div>
           <div>
             <h4 class="font-bold mb-4">Newsletter</h4>
             <form class="flex flex-col space-y-2">
-              <input type="email" placeholder="Your email" class="px-4 py-2 rounded-lg text-gray-800" />
-              <button class="bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded-lg transition">Subscribe</button>
+              <input
+                type="email"
+                placeholder="Your email"
+                class="px-4 py-2 rounded-lg text-gray-800"
+              />
+              <button
+                class="bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded-lg transition"
+              >
+                Subscribe
+              </button>
             </form>
           </div>
         </div>
@@ -148,7 +194,8 @@
       const stories = {
         rajasthan: {
           title: "Rajasthan's Desert Majesty",
-          image: "https://plus.unsplash.com/premium_photo-1691031428827-adf34ee712d4?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          image:
+            "https://plus.unsplash.com/premium_photo-1691031428827-adf34ee712d4?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           author: "Travel Enthusiast",
           date: "March 15, 2024",
           readTime: "8 min read",
@@ -175,11 +222,12 @@
               <li>Book tours with reputable local operators</li>
               <li>Don't miss the sunrise and sunset views</li>
             </ul>
-          `
+          `,
         },
         kerala: {
           title: "Serene Backwaters of Kerala",
-          image: "https://plus.unsplash.com/premium_photo-1664303556708-4b582f8c6b5b?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          image:
+            "https://plus.unsplash.com/premium_photo-1664303556708-4b582f8c6b5b?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           author: "Nature Explorer",
           date: "April 22, 2024",
           readTime: "6 min read",
@@ -197,11 +245,12 @@
             
             <h3 class="text-2xl font-bold mb-4">Culinary Delights</h3>
             <p class="text-gray-700 mb-6">Fresh seafood, coconut-based curries, and traditional Kerala meals cooked on board make the journey a culinary adventure. The karimeen (pearl spot fish) curry is a must-try delicacy.</p>
-          `
+          `,
         },
         himalaya: {
           title: "Himalayan Adventures",
-          image: "https://images.unsplash.com/photo-1494806812796-244fe51b774d?q=80&w=2934&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          image:
+            "https://images.unsplash.com/photo-1494806812796-244fe51b774d?q=80&w=2934&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           author: "Mountain Climber",
           date: "May 10, 2024",
           readTime: "10 min read",
@@ -219,20 +268,20 @@
             
             <h3 class="text-2xl font-bold mb-4">Spiritual Connection</h3>
             <p class="text-gray-700 mb-6">There's something deeply spiritual about being surrounded by these ancient peaks. The silence, the pristine air, and the sheer scale of nature create a profound sense of connection with something greater than ourselves.</p>
-          `
-        }
+          `,
+        },
       };
 
       // Function to load story content
       function loadStoryContent() {
         const urlParams = new URLSearchParams(window.location.search);
-        const storyId = urlParams.get('story');
+        const storyId = urlParams.get("story");
         const story = stories[storyId];
 
         if (story) {
           document.title = `${story.title} - TravelTales`;
-          const storyContent = document.getElementById('storyContent');
-          
+          const storyContent = document.getElementById("storyContent");
+
           storyContent.innerHTML = `
             <img src="${story.image}" alt="${story.title}" class="hero-image w-full" />
             <div class="p-8">
@@ -251,15 +300,12 @@
               <!-- Social Share -->
               <div class="mt-12 pt-8 border-t border-gray-200">
                 <h3 class="text-lg font-bold mb-4">Share this story</h3>
-                <div class="flex space-x-4">
-                  <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition">
-                    <i class="bi bi-facebook mr-2"></i>Facebook
+                <div class="flex gap-3">
+                  <button onclick="shareStory()" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg transition">
+                    <i class="bi bi-share mr-2"></i>Share
                   </button>
-                  <button class="bg-blue-400 hover:bg-blue-500 text-white px-4 py-2 rounded-lg transition">
-                    <i class="bi bi-twitter mr-2"></i>Twitter
-                  </button>
-                  <button class="bg-blue-800 hover:bg-blue-900 text-white px-4 py-2 rounded-lg transition">
-                    <i class="bi bi-linkedin mr-2"></i>LinkedIn
+                  <button onclick="copyLink()" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-2 rounded-lg transition">
+                    <i class="bi bi-link mr-2"></i>Copy Link
                   </button>
                 </div>
               </div>
@@ -267,7 +313,7 @@
           `;
         } else {
           // Story not found
-          document.getElementById('storyContent').innerHTML = `
+          document.getElementById("storyContent").innerHTML = `
             <div class="p-8 text-center">
               <h1 class="text-3xl font-bold mb-4">Story Not Found</h1>
               <p class="text-gray-600 mb-6">The story you're looking for doesn't exist.</p>
@@ -285,7 +331,30 @@
       }
 
       // Load story content when page loads
-      document.addEventListener('DOMContentLoaded', loadStoryContent);
+      document.addEventListener("DOMContentLoaded", loadStoryContent);
+
+      // Simple share functionality
+      function shareStory() {
+        if (navigator.share) {
+          navigator.share({
+            title: document.title,
+            url: window.location.href,
+          });
+        } else {
+          copyLink();
+        }
+      }
+
+      function copyLink() {
+        navigator.clipboard
+          .writeText(window.location.href)
+          .then(() => {
+            alert("Link copied to clipboard!");
+          })
+          .catch(() => {
+            alert("Unable to copy link");
+          });
+      }
     </script>
   </body>
 </html>

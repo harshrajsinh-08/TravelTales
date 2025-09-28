@@ -94,67 +94,83 @@ const locations = [
     name: "Mysore Palace",
     lat: 12.3052,
     lng: 76.6552,
-    description: "Witness the grandeur of India's royal heritage at Mysore Palace.",
-    image: "https://images.unsplash.com/photo-1595672115071-12b30f76aa5d?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-},
-{
+    description:
+      "Witness the grandeur of India's royal heritage at Mysore Palace.",
+    image:
+      "https://images.unsplash.com/photo-1595672115071-12b30f76aa5d?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
     name: "Sun Temple, Konark",
     lat: 19.8876,
     lng: 86.0945,
-    description: "Explore the ancient marvel dedicated to the Sun God at Konark.",
-    image: "https://images.unsplash.com/photo-1609156304645-62f07fd35a1a?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-},
-{
+    description:
+      "Explore the ancient marvel dedicated to the Sun God at Konark.",
+    image:
+      "https://images.unsplash.com/photo-1609156304645-62f07fd35a1a?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
     name: "Andaman & Nicobar Islands",
     lat: 11.7401,
     lng: 92.6586,
-    description: "Discover pristine beaches and crystal-clear waters in the Andaman Islands.",
-    image: "https://images.unsplash.com/photo-1604877150352-99bfc60aebf7?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-},
-{
+    description:
+      "Discover pristine beaches and crystal-clear waters in the Andaman Islands.",
+    image:
+      "https://images.unsplash.com/photo-1604877150352-99bfc60aebf7?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
     name: "Meghalaya’s Living Root Bridges",
     lat: 25.1511,
     lng: 91.6122,
-    description: "A natural wonder shaped by generations in Meghalaya’s rainforests.",
-    image: "https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-},
-{
+    description:
+      "A natural wonder shaped by generations in Meghalaya’s rainforests.",
+    image:
+      "https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
     name: "Golden Temple, Amritsar",
     lat: 31.634,
     lng: 74.8723,
-    description: "Experience serenity at the holiest Sikh shrine, the Golden Temple in Amritsar.",
-    image: "https://images.unsplash.com/photo-1595341860411-5a9c0d82d204?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-},
-{
+    description:
+      "Experience serenity at the holiest Sikh shrine, the Golden Temple in Amritsar.",
+    image:
+      "https://images.unsplash.com/photo-1595341860411-5a9c0d82d204?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
     name: "Ajanta and Ellora Caves",
     lat: 20.547,
     lng: 75.7036,
-    description: "Marvel at the ancient rock-cut caves and intricate sculptures.",
-    image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-},
-{
+    description:
+      "Marvel at the ancient rock-cut caves and intricate sculptures.",
+    image:
+      "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
     name: "Hampi",
     lat: 15.335,
     lng: 76.4619,
-    description: "Explore the ruins of the Vijayanagara Empire in this UNESCO World Heritage Site.",
-    image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-},
-{
+    description:
+      "Explore the ruins of the Vijayanagara Empire in this UNESCO World Heritage Site.",
+    image:
+      "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
     name: "Khajuraho Temples",
     lat: 24.834,
     lng: 79.9192,
-    description: "Famous for their intricate erotic sculptures, these temples are a UNESCO World Heritage Site.",
-    image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-},
-{
+    description:
+      "Famous for their intricate erotic sculptures, these temples are a UNESCO World Heritage Site.",
+    image:
+      "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
     name: "Ranthambore National Park",
     lat: 26.0026,
     lng: 76.6349,
-    description: "A wildlife sanctuary known for its Bengal tigers and diverse flora and fauna.",
-    image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-},
-
-
+    description:
+      "A wildlife sanctuary known for its Bengal tigers and diverse flora and fauna.",
+    image:
+      "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
 ];
 // Map ko initialize kar rahe hain
 const map = L.map("map").setView([20.5937, 78.9629], 5);
@@ -185,7 +201,6 @@ function displayLocationDetails(location) {
   `;
   card.classList.remove("hidden");
 }
-
 
 // Search ka logic hai
 const searchInput = document.getElementById("searchInput");
@@ -266,7 +281,9 @@ map.on("click", function (e) {
     displayLocationDetails(location);
     searchInput.value = location.name;
   } else {
-    alert("No predefined location found near this point. Please try another spot!");
+    alert(
+      "No predefined location found near this point. Please try another spot!"
+    );
   }
 });
 
@@ -276,3 +293,66 @@ document.addEventListener("click", function (e) {
     searchResults.classList.add("hidden");
   }
 });
+// Load and display user profile information in the profile section
+document.addEventListener("DOMContentLoaded", () => {
+  const userEmail = localStorage.getItem("userEmail");
+  const userName = localStorage.getItem("userName");
+  const userDescription = localStorage.getItem("userDescription");
+  const userBadges = localStorage.getItem("userBadges");
+  const userTrips = localStorage.getItem("userTrips");
+
+  if (userEmail && userName) {
+    // Update profile name
+    const profileNameElement = document.getElementById("profileName");
+    if (profileNameElement) {
+      profileNameElement.textContent = userName;
+    }
+
+    // Update profile description
+    const profileDescriptionElement = document.getElementById("profileDescription");
+    if (profileDescriptionElement) {
+      profileDescriptionElement.textContent = userDescription || "Travel enthusiast sharing adventures. Join me on my journey!";
+    }
+
+    // Update badges if saved
+    if (userBadges) {
+      const badgesContainer = document.getElementById('profileBadges');
+      if (badgesContainer) {
+        badgesContainer.innerHTML = '';
+        const badges = userBadges.split(',').map(badge => badge.trim()).filter(badge => badge);
+        badges.forEach(badge => {
+          const span = document.createElement('span');
+          span.className = 'badge';
+          span.textContent = badge;
+          badgesContainer.appendChild(span);
+        });
+      }
+    }
+
+    // Update trips if saved
+    if (userTrips) {
+      const tripsContainer = document.getElementById('profileTrips');
+      if (tripsContainer) {
+        tripsContainer.innerHTML = '';
+        const trips = userTrips.split('\n').map(trip => trip.trim()).filter(trip => trip);
+        trips.forEach(trip => {
+          const li = document.createElement('li');
+          li.textContent = trip;
+          tripsContainer.appendChild(li);
+        });
+      }
+    }
+  }
+});
+
+// Function to open story detail pages
+function openStory(storyId) {
+  window.location.href = `story-detail.html?story=${storyId}`;
+}
+
+// Function to open blog detail pages
+function openBlog(blogId) {
+  window.location.href = `blog-detail.html?blog=${blogId}`;
+}
+
+
